@@ -1,2 +1,3 @@
-rootProject.name='LoginUI'
+rootProject.name='Aid'
+
 include ':app'

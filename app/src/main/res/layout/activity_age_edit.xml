@@ -23,7 +23,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.example.loginui.ui.notifications.ClearEditText
+    <com.example.aid.ui.notifications.ClearEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorGray"

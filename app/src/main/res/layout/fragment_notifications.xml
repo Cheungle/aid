@@ -179,14 +179,14 @@
             <TextView
                 android:id="@+id/user_publish"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
                 android:layout_weight="8"
                 android:clickable="true"
-                android:focusable="true"
                 android:drawableStart="@drawable/ic_vertical_align_top_black_24dp"
+                android:focusable="true"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
                 android:text="@string/showitem_publish"
                 android:textColor="@android:color/black"
                 android:textSize="25sp" />

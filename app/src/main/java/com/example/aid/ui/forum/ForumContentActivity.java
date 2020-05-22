@@ -1,13 +1,9 @@
 package com.example.aid.ui.forum;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.aid.R;
@@ -43,7 +39,7 @@ public class ForumContentActivity extends AppCompatActivity {
                 , fc_list
                 , R.layout.fragment_fclv_item
                 , new String[]{"c_name","comment","time"}
-                , new int[]{R.id.c_user_name,R.id.comment,R.id.comment_time});
+                , new int[]{R.id.c_user_name, R.id.comment, R.id.comment_time});
 
         ListView listView = (ListView) findViewById(R.id.fc_lv);
         listView.setAdapter(adapter);

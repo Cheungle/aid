@@ -1,22 +1,19 @@
 package com.example.aid.ui.login;
 
+import android.util.Patterns;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import android.util.Patterns;
-
+import com.example.aid.R;
 import com.example.aid.data.LoginRepository;
 import com.example.aid.data.Result;
 import com.example.aid.data.model.LoggedInUser;
-import com.example.aid.R;
-import com.example.aid.ui.login.LoggedInUserView;
-import com.example.aid.ui.login.LoginFormState;
-import com.example.aid.ui.login.LoginResult;
 
 public class LoginViewModel extends ViewModel {
 
-    private MutableLiveData<com.example.aid.ui.login.LoginFormState> loginFormState = new MutableLiveData<>();
+    private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
     private MutableLiveData<com.example.aid.ui.login.LoginResult> loginResult = new MutableLiveData<>();
     private LoginRepository loginRepository;
 
@@ -24,7 +21,7 @@ public class LoginViewModel extends ViewModel {
         this.loginRepository = loginRepository;
     }
 
-    LiveData<com.example.aid.ui.login.LoginFormState> getLoginFormState() {
+    LiveData<LoginFormState> getLoginFormState() {
         return loginFormState;
     }
 

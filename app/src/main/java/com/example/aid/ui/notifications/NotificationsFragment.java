@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -15,7 +16,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.aid.MainActivity;
 import com.example.aid.R;
-import com.example.aid.ui.notifications.NotificationsViewModel;
 
 
 public class NotificationsFragment extends Fragment {

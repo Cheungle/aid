@@ -1,6 +1,5 @@
 package com.example.aid.ui.login.data;
 
-import com.example.aid.ui.login.data.Result;
 import com.example.aid.ui.login.data.model.LoggedInUser;
 
 import java.io.IOException;

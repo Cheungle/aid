@@ -15,14 +15,14 @@
         android:id="@+id/navigation_forum"
         android:icon="@mipmap/ic_forum"
         android:title="@string/title_forum" />
-
     <item
         android:id="@+id/navigation_message"
         android:icon="@mipmap/ic_message"
-        android:title="Message" />
+        android:title="@string/title_message" />
     <item
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_person_black_24dp"
         android:title="@string/title_notifications" />
+
 
 </menu>

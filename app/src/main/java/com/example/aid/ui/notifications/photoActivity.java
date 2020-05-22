@@ -11,10 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.aid.R;
-import com.example.aid.ui.notifications.ageEditActivity;
-import com.example.aid.ui.notifications.nameEditActivity;
-import com.example.aid.ui.notifications.photoEditActivity;
-import com.example.aid.ui.notifications.sexEditActivity;
 
 public class photoActivity extends AppCompatActivity {
 

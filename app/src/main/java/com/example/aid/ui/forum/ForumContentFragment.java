@@ -1,19 +1,14 @@
 package com.example.aid.ui.forum;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.aid.R;
 
@@ -48,7 +43,7 @@ public class ForumContentFragment extends Fragment {
                 , fc_list
                 , R.layout.fragment_fclv_item
                 , new String[]{"c_name","comment","time"}
-                , new int[]{R.id.c_user_name,R.id.comment,R.id.comment_time});
+                , new int[]{R.id.c_user_name, R.id.comment, R.id.comment_time});
 
         ListView listView = (ListView) fc_view.findViewById(R.id.fc_lv);
         listView.setAdapter(adapter);

@@ -9,18 +9,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.aid.R;
-import com.example.aid.ui.forum.ForumContentActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,7 +42,7 @@ public class MessageFragment extends Fragment {
     }
     */
 
-    private int[] user_images={R.mipmap.ic_forum,R.mipmap.ic_message};
+    private int[] user_images={R.mipmap.ic_forum, R.mipmap.ic_message};
     private String[] user_names={"龙宝","阿轩"};
     private String[] user_last_messages={"螺蛳粉", "猫咪图片"};
 

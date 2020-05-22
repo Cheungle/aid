@@ -1,31 +1,11 @@
 package com.example.aid.ui.message;
 
-import android.widget.ListView;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.LayoutInflater;
-import android.app.Activity;
-import android.os.Bundle;
-
-import com.example.aid.R;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-
-
-
-public class MessageViewModel extends ViewModel{
+public class MessageViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 

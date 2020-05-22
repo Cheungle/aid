@@ -43,4 +43,23 @@
     <string name="title_activity_sex_edit">修改性别</string>
     <string name="title_forum">Forum</string>
     <string name="title_message">Message</string>
+    <string name="task_tab">任务</string>
+    <string name="resources_tab">资源</string>
+    <string name="new_button_tab">+ 新建</string>
+    <string name="TR_sponsor">发起人</string>
+    <string name="TR_time">发起时间</string>
+    <string name="new_time">时间</string>
+    <string name="new_content">内容</string>
+    <string name="new_type">类型</string>
+    <string name="new_type_task">任务</string>
+    <string name="new_type_resources">资源</string>
+    <string name="TR_location">地点</string>
+    <string name="T_time">任务时间</string>
+    <string name="R_time">配送时间</string>
+    <string name="T_content">任务内容</string>
+    <string name="R_content">资源内容</string>
+    <string name="chat_with_sponsor_button">联系发起人</string>
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    <string name="title_task_resources">任务资源</string>
 </resources>

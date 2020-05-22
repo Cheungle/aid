@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/new_TR_type"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/new_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="290dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/new_TR_type"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <RadioButton
+            android:id="@+id/rg_type_task"
+            android:layout_width="90dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:checked="true"
+            android:text="@string/new_type_task" />
+
+        <RadioButton
+            android:id="@+id/rg_type_resources"
+            android:layout_width="90dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:checked="true"
+            android:text="@string/new_type_resources"
+            app:layout_constraintStart_toStartOf="@id/rg_type_task" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/new_TR_time"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/new_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/new_TR_type"/>
+
+    <TextView
+        android:id="@+id/new_TR_time_detail"
+        android:layout_width="290dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/new_TR_time"
+        app:layout_constraintTop_toTopOf="@id/rg" />
+
+    <TextView
+        android:id="@+id/new_TR_location"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/TR_location"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/new_TR_time"/>
+
+    <TextView
+        android:id="@+id/new_TR_location_detail"
+        android:layout_width="290dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/new_TR_location"
+        app:layout_constraintTop_toTopOf="@id/new_TR_time_detail" />
+
+    <TextView
+        android:id="@+id/new_TR_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/new_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/new_TR_location"/>
+
+    <TextView
+        android:id="@+id/new_TR_content_detail"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/new_TR_content"
+        app:layout_constraintTop_toTopOf="@id/new_TR_location_detail" />
+
+    <Button
+        android:id="@+id/new_TR_save_button"
+        android:text="@string/save"
+        android:background="#EFAA52"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/new_TR_content_detail" />
+
+    <Button
+        android:id="@+id/new_TR_cancel_button"
+        android:text="@string/cancel"
+        android:background="#EFAA52"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/new_TR_content_detail" />
+</androidx.constraintlayout.widget.ConstraintLayout>

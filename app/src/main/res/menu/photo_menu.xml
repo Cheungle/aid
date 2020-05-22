@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/photoedit_take"
+        android:title="拍照"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/photoedit_choose"
+        android:title="从相册中选择"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/photoedit_former"
+        android:title="查看上一张头像"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/photoedit_save"
+        android:title="保存图片"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/photoedit_cancel"
+        android:title="取消"
+        app:showAsAction="never"/>
+</menu>

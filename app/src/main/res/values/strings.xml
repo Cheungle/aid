@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">疫情互助</string>
+    <string name="title_info">信息</string>
+    <string name="title_dashboard">任务</string>
+    <string name="title_notifications">我的</string>
+    <string name="title_activity_detail">detailActivity</string>
+    <string name="title_message">消息</string>
+    <string name="title_activity_data">dataActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="prompt_id">ID</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_mine">我的</string>
+    <string name="title_activity_register">注册</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="identity_text">账号</string>
+    <string name="password_text">密码</string>
+    <string name="fa_user">&#xf007;</string>
+    <string name="angle_right">&#xf105;</string>
+    <string name="folder">&#xf07c;</string>
+    <string name="fa_lock">&#xf023;</string>
+    <string name="prompt_email">Email</string>
+    <string name="photodes">personal photo</string>
+    <string name="shownum">182****5882</string>
+    <string name="showname">张三</string>
+    <string name="showitem_info">&#160;&#160;个人资料</string>
+    <string name="showitem_mark">&#160;&#160;我的收藏</string>
+    <string name="showitem_publish">&#160;&#160;我的发布</string>
+    <string name="showitem_set">&#160;&#160;设置</string>
+    <string name="showitem_logout">&#160;&#160;退出账号</string>
+    <string name="title_activity_photo">个人信息</string>
+    <string name="info_photo">头像</string>
+    <string name="info_sex">性别</string>
+    <string name="info_age">年龄</string>
+    <string name="info_name">昵称</string>
+    <string name="info_ID">账号</string>
+    <string name="title_activity_photo_edit">修改头像</string>
+    <string name="title_activity_name_edit">修改昵称</string>
+    <string name="title_activity_age_edit">修改年龄</string>
+    <string name="title_activity_sex_edit">修改性别</string>
+    <string name="title_forum">论坛</string>
+</resources>

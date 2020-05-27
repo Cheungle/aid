@@ -390,6 +390,8 @@ CREATE TABLE `user` (
   `User_Head` varchar(20) DEFAULT NULL,
   `User_Address` varchar(50) DEFAULT NULL,
   `User_Age` int(11) DEFAULT NULL,
+  `User_Identity` varchar(18) DEFAULT NULL,
+  `User_RealName` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`User_ID`),
   UNIQUE KEY `User_ID_UNIQUE` (`User_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -401,7 +403,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('15186861111','123456',1,'LU','image','上海',20),('15186862222','123456',0,'Li','image','北京',30);
+INSERT INTO `user` VALUES ('15186861111','123456',1,'LU','image','上海',20,NULL,NULL),('15186862222','123456',0,'Li','image','北京',30,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -422,4 +424,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-27  1:53:22
+-- Dump completed on 2020-05-28  3:12:06

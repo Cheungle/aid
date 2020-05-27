@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notifications.ageEditActivity">
+    tools:context="com.example.aid.ui.notifications.ageEditActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,7 +37,7 @@
         android:selectAllOnFocus="true"
         android:textColor="@color/colorBlack"
         android:textSize="25sp"
-        android:backgroundTint="@color/colorPrimary2"
+        android:backgroundTint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,7 @@
             android:paddingStart="10dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:background="@color/colorPrimary2"
+            android:background="@color/colorPrimary"
             android:text="是否对他人显示"
             android:textSize="23sp"/>
 

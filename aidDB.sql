@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.23, for Win64 (x86_64)
 --
--- Host: localhost    Database: aid
+-- Host: localhost    Database: aiddb
 -- ------------------------------------------------------
--- Server version	5.7.9-log
+-- Server version	5.5.43-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -86,13 +86,16 @@ DROP TABLE IF EXISTS `data`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `data` (
   `Data_ID` int(11) NOT NULL,
-  `Data_Place` varchar(10) NOT NULL,
-  `Data_Data` int(11) NOT NULL,
+  `Data_Place` varchar(10) CHARACTER SET utf8 NOT NULL,
   `Data_Time` date NOT NULL,
-  `Data_Source` varchar(20) NOT NULL,
+  `Data_Source` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `Data_Data1` int(11) NOT NULL,
+  `Data_Data2` int(11) NOT NULL,
+  `Data_Data3` int(11) NOT NULL,
+  `Data_Data4` int(11) NOT NULL,
   PRIMARY KEY (`Data_ID`),
   UNIQUE KEY `Data_ID_UNIQUE` (`Data_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +104,7 @@ CREATE TABLE `data` (
 
 LOCK TABLES `data` WRITE;
 /*!40000 ALTER TABLE `data` DISABLE KEYS */;
-INSERT INTO `data` VALUES (1,'上海',26,'2020-05-01','国家卫健委');
+INSERT INTO `data` VALUES (1,'上海','2020-05-01','国家卫健委',26,1,1,1),(2,'北京','2020-05-01','国家卫健委',11,34,1,3);
 /*!40000 ALTER TABLE `data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -435,14 +438,6 @@ LOCK TABLES `user` WRITE;
 INSERT INTO `user` VALUES ('15186861111','123456',1,'LU','image','上海',20,NULL,NULL),('15186862222','123456',0,'Li','image','北京',30,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'aid'
---
-
---
--- Dumping routines for database 'aid'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -453,4 +448,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-28 15:39:58
+-- Dump completed on 2020-05-28 17:13:18

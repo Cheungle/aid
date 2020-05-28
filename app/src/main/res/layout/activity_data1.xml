@@ -186,32 +186,36 @@
                     android:layout_below="@id/ditu"
                     android:id="@+id/xiangxia1"
                     android:gravity="center">
-                <Button
-                    android:id="@+id/xiangxia"
-                    android:layout_width="38dp"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/down"
-                    android:background="#ffffff"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_centerHorizontal="true"
-                    />
-                <Button
-                    android:layout_width="38dp"
-                    android:layout_height="wrap_content"
-                    android:background="#ffffff"
-                    android:drawableLeft="@drawable/big"
-                    android:id="@+id/fangda"
-                    android:layout_toLeftOf="@id/suoxiao"
-
-                    />
-                <Button
-                    android:layout_width="38dp"
-                    android:layout_height="wrap_content"
-                    android:background="#ffffff"
-                    android:drawableRight="@drawable/small"
-                    android:id="@+id/suoxiao"
-                    />
+                    <Button
+                        android:id="@+id/xiangxia"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/down"
+                        android:background="#ffffff"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        />
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:drawableRight="@drawable/big"
+                        android:id="@+id/fangda"
+                        android:layout_toLeftOf="@id/suoxiao"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:layout_weight="1"
+                        />
+                    <Button
+                        android:layout_width="38dp"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:drawableRight="@drawable/small"
+                        android:id="@+id/suoxiao"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        />
                 </LinearLayout>
 
                 <com.example.aid.ui.data.LineView

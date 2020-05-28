@@ -65,4 +65,6 @@
     <string name="save">保存</string>
     <string name="cancel">取消</string>
     <string name="title_task_resources">任务资源</string>
+    <string name="new_TR">新建任务资源</string>
+    <string name="accept_TR">认领</string>
 </resources>

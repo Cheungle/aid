@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-
-   <TextView
+    <TextView
         android:id="@+id/new_TR_type"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="50dp"
+        android:background="#FFFFFF"
         android:text="@string/new_type"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,6 +27,7 @@
         android:layout_marginTop="50dp"
         android:orientation="horizontal"
         android:visibility="visible"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/new_TR_type"
         app:layout_constraintTop_toTopOf="parent"
         >
@@ -56,17 +57,19 @@
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
+        android:background="#FFFFFF"
         android:text="@string/new_time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/new_TR_type"/>
 
-    <TextView
+    <EditText
         android:id="@+id/new_TR_time_detail"
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/new_TR_time"
         app:layout_constraintTop_toTopOf="@id/rg" />
 
@@ -75,17 +78,19 @@
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
         android:text="@string/TR_location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/new_TR_time"/>
 
-    <TextView
+    <EditText
         android:id="@+id/new_TR_location_detail"
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/new_TR_location"
         app:layout_constraintTop_toTopOf="@id/new_TR_time_detail" />
 
@@ -94,17 +99,19 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
         android:text="@string/new_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/new_TR_location"/>
 
-    <TextView
+    <EditText
         android:id="@+id/new_TR_content_detail"
         android:layout_width="290dp"
         android:layout_height="60dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/new_TR_content"
         app:layout_constraintTop_toTopOf="@id/new_TR_location_detail" />
 
@@ -115,7 +122,7 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/new_TR_content_detail" />
 
@@ -126,7 +133,7 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginStart="240dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/new_TR_content_detail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,8 @@
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
+        android:background="#FFFFFF"
         android:text="@string/TR_sponsor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +25,8 @@
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/resources_sponsor"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,6 +36,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
         android:text="@string/TR_time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/resources_sponsor"/>
@@ -44,6 +47,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/resources_time"
         app:layout_constraintTop_toTopOf="@id/resources_sponsor_detail" />
 
@@ -53,6 +57,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="40dp"
+        android:background="#FFFFFF"
         android:text="@string/TR_location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/resources_sponsor"/>
@@ -63,6 +68,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/resources_location"
         app:layout_constraintTop_toTopOf="@id/resources_time_detail" />
 
@@ -73,6 +79,7 @@
         android:layout_marginStart="27dp"
         android:layout_marginTop="60dp"
         android:text="@string/R_time"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/resources_sponsor"/>
 
@@ -82,6 +89,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/resources_resources_time"
         app:layout_constraintTop_toTopOf="@id/resources_location_detail" />
 
@@ -92,6 +100,7 @@
         android:layout_marginStart="27dp"
         android:layout_marginTop="80dp"
         android:text="@string/R_content"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/resources_sponsor"/>
 
@@ -101,6 +110,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/resources_content"
         app:layout_constraintTop_toTopOf="@id/resources_resources_time_detail" />
 
@@ -108,9 +118,20 @@
         android:id="@+id/chat_with_resources_sponsor"
         android:text="@string/chat_with_sponsor_button"
         android:background="#EFAA52"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="40dp"
-        android:layout_marginStart="130dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/resources_content_detail" />
+
+    <Button
+        android:id="@+id/accept_resources"
+        android:text="@string/accept_TR"
+        android:background="#EFAA52"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="240dp"
         android:layout_marginTop="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/resources_content_detail" />

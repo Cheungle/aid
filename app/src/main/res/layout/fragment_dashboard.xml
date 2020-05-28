@@ -4,40 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.aid.ui.dashboard.DashboardFragment">
+    tools:context=".ui.dashboard.DashboardFragment">
 
-    <Button
-        android:id="@+id/new_task_resources"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="4dp"
-        android:background="#EFAA52"
-        android:text="@string/new_button_tab"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/task_list"
-        android:layout_width="149dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:background="#EFAA52"
+        android:layout_marginStart="0dp"
         android:text="@string/task_tab"
+        android:background="#EFAA52"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
         android:id="@+id/resources_list"
-        android:layout_width="130dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:background="#EFAA52"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="0dp"
         android:text="@string/resources_tab"
+        android:background="#EFAA52"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toStartOf="@+id/task_list"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toEndOf="@+id/new_task_resources"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/task_list"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/new_task_resources"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="0dp"
+        android:text="@string/new_button_tab"
+        android:background="#EFAA52"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@id/resources_list"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ListView
         android:id="@+id/task_resources_list"

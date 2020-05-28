@@ -13,7 +13,8 @@
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
+        android:background="#FFFFFF"
         android:text="@string/TR_sponsor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +25,8 @@
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/task_sponsor"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,6 +36,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
         android:text="@string/TR_time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/task_sponsor"/>
@@ -44,6 +47,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/task_time"
         app:layout_constraintTop_toTopOf="@id/task_sponsor_detail" />
 
@@ -53,6 +57,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="40dp"
+        android:background="#FFFFFF"
         android:text="@string/TR_location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/task_sponsor"/>
@@ -62,6 +67,7 @@
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
+        android:background="#FFFFFF"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="@id/task_location"
         app:layout_constraintTop_toTopOf="@id/task_time_detail" />
@@ -72,6 +78,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
         android:text="@string/T_time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/task_sponsor"/>
@@ -82,6 +89,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/task_task_time"
         app:layout_constraintTop_toTopOf="@id/task_location_detail" />
 
@@ -91,6 +99,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="80dp"
+        android:background="#FFFFFF"
         android:text="@string/T_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/task_sponsor"/>
@@ -101,6 +110,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/task_content"
         app:layout_constraintTop_toTopOf="@id/task_task_time_detail" />
 
@@ -108,9 +118,20 @@
         android:id="@+id/chat_with_task_sponsor"
         android:text="@string/chat_with_sponsor_button"
         android:background="#EFAA52"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="40dp"
-        android:layout_marginStart="130dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/task_content_detail" />
+
+    <Button
+        android:id="@+id/accept_task"
+        android:text="@string/accept_TR"
+        android:background="#EFAA52"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="240dp"
         android:layout_marginTop="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/task_content_detail" />

@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.6.23, for Win64 (x86_64)
 --
--- Host: localhost    Database: aiddb
+-- Host: localhost    Database: aid
 -- ------------------------------------------------------
--- Server version	5.5.43-log
+-- Server version	5.6.25-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -390,6 +390,7 @@ CREATE TABLE `theme` (
   `Theme_Content` varchar(100) NOT NULL,
   `Theme_Time` date NOT NULL,
   `Theme_ManagerID_fk` char(13) NOT NULL,
+  `Theme_Title` varchar(30) NOT NULL,
   PRIMARY KEY (`Theme_ID`),
   UNIQUE KEY `Theme_ID_UNIQUE` (`Theme_ID`),
   KEY `Theme_ManagerID_fk` (`Theme_ManagerID_fk`),
@@ -403,7 +404,7 @@ CREATE TABLE `theme` (
 
 LOCK TABLES `theme` WRITE;
 /*!40000 ALTER TABLE `theme` DISABLE KEYS */;
-INSERT INTO `theme` VALUES (1,'新冠病毒','2020-05-01','15186861111M'),(2,'今日确诊','2020-05-03','15186861111M');
+INSERT INTO `theme` VALUES (1,'新冠病毒','2020-05-01','15186861111M',''),(2,'今日确诊','2020-05-03','15186861111M','');
 /*!40000 ALTER TABLE `theme` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -448,4 +449,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-28 17:13:18
+-- Dump completed on 2020-05-28 18:57:40

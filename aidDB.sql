@@ -161,6 +161,35 @@ INSERT INTO `manager` VALUES ('15186861111M','123');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `mark`
+--
+
+DROP TABLE IF EXISTS `mark`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mark` (
+  `Mark_ID` int(11) NOT NULL,
+  `Mark_TaskID_fk` int(11) NOT NULL,
+  `Mark_UserID_fk` char(12) NOT NULL,
+  PRIMARY KEY (`Mark_ID`),
+  UNIQUE KEY `Mark_ID_UNIQUE` (`Mark_ID`),
+  KEY `Mark_TaskID_fk_idx` (`Mark_TaskID_fk`),
+  KEY `Mark_UserID_fk` (`Mark_UserID_fk`),
+  CONSTRAINT `Mark_TaskID_fk` FOREIGN KEY (`Mark_TaskID_fk`) REFERENCES `task` (`Task_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Mark_UserID_fk` FOREIGN KEY (`Mark_UserID_fk`) REFERENCES `user` (`User_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mark`
+--
+
+LOCK TABLES `mark` WRITE;
+/*!40000 ALTER TABLE `mark` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mark` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `message`
 --
 
@@ -424,4 +453,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-28  3:12:06
+-- Dump completed on 2020-05-28 15:39:58

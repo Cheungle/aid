@@ -15,12 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aid.R;
-<<<<<<< HEAD
-=======
 import com.example.aid.data1Activity;
 import com.example.aid.ui.dashboard.DashboardNewTaskReources;
-
->>>>>>> 19d6ed2af785662ee696f7318a8d1c04be72a37d
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -43,12 +39,7 @@ public class DashboardFragment<string> extends Fragment {
     private String[] time ;
     private String[] content ;
     private AlertDialog alertDialog_AddRecord;//点击新建按钮时弹出提示框
-
-<<<<<<< HEAD
-
-=======
     private Button new_taskresources;
->>>>>>> 19d6ed2af785662ee696f7318a8d1c04be72a37d
     public DashboardFragment() {
         // Required empty public constructor
     }
@@ -128,11 +119,7 @@ public class DashboardFragment<string> extends Fragment {
             }
         });
 
-<<<<<<< HEAD
-        Button new_taskresources = (Button)taskresources_view.findViewById(R.id.new_task_resources);
-=======
         new_taskresources = (Button)taskresources_view.findViewById(R.id.new_task_resources);
->>>>>>> 19d6ed2af785662ee696f7318a8d1c04be72a37d
         new_taskresources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

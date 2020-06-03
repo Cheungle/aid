@@ -5,60 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.forum.ForumFragment">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#EFAA52"
-    android:gravity="center"
-    android:id="@+id/forum_medicine_bt1">
-    <Button
-        android:id="@+id/forum_others_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#EFAA52"
-        android:text="其他"
-        android:textSize="20sp"
-        android:textColor="#ffffff"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/forum_people_bt"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/forum_medicine_bt1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#EFAA52"
-        android:text="人员"
-        android:textSize="20sp"
-        android:textColor="#ffffff"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/forum_medicine_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#EFAA52"
-        android:text="药物"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toStartOf="@+id/forum_others_bt"
-        app:layout_constraintStart_toEndOf="@+id/forum_people_bt"
-        app:layout_constraintTop_toTopOf="parent" />
-</LinearLayout>
+
+        <Button
+            android:id="@+id/forum_people_bt"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#EFAA52"
+            android:text="人员"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/forum_medicine_bt"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#EFAA52"
+            android:text="药物"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/forum_others_bt"
+            app:layout_constraintStart_toEndOf="@+id/forum_people_bt"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/forum_others_bt"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#EFAA52"
+            android:text="其他"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/forum_lv"
-        android:layout_width="405dp"
-        android:layout_height="660dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginRight="3dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="684dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forum_medicine_bt1" />

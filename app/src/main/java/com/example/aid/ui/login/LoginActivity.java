@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -26,6 +27,8 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.aid.MainActivity;
 import com.example.aid.R;
 import com.example.aid.Register;
+import com.example.aid.data.DAL.UserDAL;
+import java.sql.SQLException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -45,7 +48,6 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
-
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
@@ -79,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
 
         TextWatcher afterTextChangedListener = new TextWatcher() {
             @Override
@@ -119,6 +122,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void waitBtns() {
         //跳转注册页面
+        System.out.println("here");
         Button btn_register = (Button)findViewById(R.id.register);
         btn_register.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -128,10 +132,28 @@ public class LoginActivity extends AppCompatActivity {
         });
         //跳转登录
         Button btn_login = (Button)findViewById(R.id.login);
+        final EditText usernameEditText = findViewById(R.id.ID);
+        final EditText passwordEditText = findViewById(R.id.password);
+        Log.v("tag",usernameEditText.getText().toString());
+        Log.v("tag",passwordEditText.getText().toString());
         btn_login.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(LoginActivity.this , MainActivity.class);
-                startActivity(i);
+                Boolean login = false;
+                UserDAL userDAL = new UserDAL(LoginActivity.this);
+
+                try {
+                    login = userDAL.login(usernameEditText.getText().toString(),passwordEditText.getText().toString());
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                if(login){
+                    Intent i = new Intent(LoginActivity.this , MainActivity.class);
+                    startActivity(i);
+                    Log.i("tag","succses");
+                }else{
+                    Log.i("tag","sry");
+                }
+
             }
         });
     }

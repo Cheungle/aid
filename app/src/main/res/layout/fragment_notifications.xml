@@ -123,15 +123,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
                 android:layout_weight="8"
                 android:clickable="true"
                 android:focusable="true"
                 android:drawableStart="@drawable/ic_tag_faces_black_24dp"
                 android:text="@string/showitem_info"
                 android:textColor="@android:color/black"
-                android:textSize="25sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/arrow_Info"
@@ -162,15 +162,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
                 android:layout_weight="8"
                 android:clickable="true"
                 android:focusable="true"
                 android:drawableStart="@drawable/ic_folder_black_24dp"
                 android:text="@string/showitem_mark"
                 android:textColor="@android:color/black"
-                android:textSize="25sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/arrow_Mark"
@@ -204,11 +204,11 @@
                 android:clickable="true"
                 android:drawableStart="@drawable/ic_vertical_align_top_black_24dp"
                 android:focusable="true"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
                 android:text="@string/showitem_publish"
                 android:textColor="@android:color/black"
-                android:textSize="25sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/arrow_Publish"
@@ -238,15 +238,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
                 android:layout_weight="8"
                 android:clickable="true"
                 android:focusable="true"
                 android:drawableStart="@drawable/ic_settings_black_24dp"
                 android:text="@string/showitem_set"
                 android:textColor="@android:color/black"
-                android:textSize="25sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/arrow_Set"
@@ -276,15 +276,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
                 android:layout_weight="8"
                 android:clickable="true"
                 android:focusable="true"
                 android:drawableStart="@drawable/ic_close_black_24dp"
                 android:text="@string/showitem_logout"
                 android:textColor="@android:color/black"
-                android:textSize="25sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/arrow_Logout"

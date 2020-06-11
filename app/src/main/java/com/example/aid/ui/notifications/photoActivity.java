@@ -11,13 +11,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.aid.R;
+import com.example.aid.data.DAL.UserDAL;
 
 public class photoActivity extends AppCompatActivity {
-
+    private String id;
+    private String name;
+    private String photo;
+    private String age;
+    private String sex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
+        String id = getIntent().getStringExtra("id");
+        this.id=id;
         Typeface font = Typeface.createFromAsset(getAssets(), "fontawesome-webfont.ttf");
         ((TextView)findViewById(R.id.info_arrowphoto)).setTypeface(font);
         ((TextView)findViewById(R.id.info_arrowname)).setTypeface(font);
@@ -25,23 +32,89 @@ public class photoActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.arrow_age)).setTypeface(font);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //从数据库中读出数据显示
+        ImageView photo = findViewById(R.id.info_showphoto);
+        TextView name = findViewById(R.id.info_showname);
+        TextView number = findViewById(R.id.info_shownum);
+        TextView sex = findViewById(R.id.info_showsex);
+        TextView age = findViewById(R.id.info_showage);
+        number.setText(this.id);
+        UserDAL userDAL = new UserDAL(this);
+        String base[] = userDAL.selectPhotoPage(this.id);
+        this.photo = base[0];
+        if(this.photo==null){
+            photo.setImageResource(R.mipmap.photo);
+        }else{
+            //photo.setImageResource(this.photo);
+        }
+        this.name = base[1];
+        this.age = base[3];
+        this.sex = base [2];
+        name.setText(this.name);
+        if(this.sex == "1"){
+            sex.setText("女");
+        }else{
+            if(this.sex == "0"){
+                sex.setText("男");
+            }else{
+
+            }
+        }
+        age.setText(this.age);
         waitAge();
         waitName();
         waitPhoto();
         waitSex();
+    }
+    protected void onActivityResult(int requestCode,int resultCode,Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        if(resultCode == RESULT_OK){
+            switch (requestCode){
+                case 1:{
+                    TextView age = findViewById(R.id.info_showage);
+                    age.setText(data.getStringExtra("age_return"));
+                    this.age = data.getStringExtra("age_return");
+                    break;
+                }
+                case 2:{
+                    TextView sex = findViewById(R.id.info_showsex);
+                    String sexEdit =  data.getStringExtra("sex_return");
+                    if(sexEdit=="0"){
+                        sex.setText("男");
+                    }else{
+                        sex.setText("女");
+                    }
+                    this.sex = data.getStringExtra("sex_return");
+                    break;
+                }
+                case 3:{
+                    TextView name = findViewById(R.id.info_showname);
+                    name.setText(data.getStringExtra("name_return"));
+                    this.name = data.getStringExtra("name_return");
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
     }
     private void waitAge() {
         TextView word =  findViewById(R.id.info_age);
         word.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(photoActivity.this , ageEditActivity.class);
-                startActivity(i);
+                i.putExtra("id",photoActivity.this.id);
+                i.putExtra("age",photoActivity.this.age);
+                //startActivity(i);
+                startActivityForResult(i,1);
             }
         });
         TextView text =  findViewById(R.id.info_showage);
         text.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(photoActivity.this , ageEditActivity.class);
+                i.putExtra("id",photoActivity.this.id);
+                i.putExtra("age",photoActivity.this.age);
                 startActivity(i);
             }
 
@@ -50,6 +123,8 @@ public class photoActivity extends AppCompatActivity {
         icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(photoActivity.this , ageEditActivity.class);
+                i.putExtra("id",photoActivity.this.id);
+                i.putExtra("age",photoActivity.this.age);
                 startActivity(i);
             }
 
@@ -60,14 +135,18 @@ public class photoActivity extends AppCompatActivity {
         word.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(photoActivity.this , sexEditActivity.class);
-                startActivity(i);
+                i.putExtra("id",photoActivity.this.id);
+                i.putExtra("sex",photoActivity.this.sex);
+                startActivityForResult(i,2);
             }
         });
         TextView text =  findViewById(R.id.info_showsex);
         text.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(photoActivity.this , sexEditActivity.class);
-                startActivity(i);
+                i.putExtra("id",photoActivity.this.id);
+                i.putExtra("sex",photoActivity.this.sex);
+                startActivityForResult(i,2);
             }
 
         });
@@ -75,7 +154,9 @@ public class photoActivity extends AppCompatActivity {
         icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(photoActivity.this , sexEditActivity.class);
-                startActivity(i);
+                i.putExtra("id",photoActivity.this.id);
+                i.putExtra("sex",photoActivity.this.sex);
+                startActivityForResult(i,2);
             }
 
         });
@@ -85,14 +166,18 @@ public class photoActivity extends AppCompatActivity {
         word.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(photoActivity.this , nameEditActivity.class);
-                startActivity(i);
+                i.putExtra("id",photoActivity.this.id);
+                i.putExtra("name",photoActivity.this.name);
+                startActivityForResult(i,3);
             }
         });
         TextView text =  findViewById(R.id.info_showname);
         text.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(photoActivity.this , nameEditActivity.class);
-                startActivity(i);
+                i.putExtra("id",photoActivity.this.id);
+                i.putExtra("name",photoActivity.this.name);
+                startActivityForResult(i,3);
             }
 
         });
@@ -100,7 +185,9 @@ public class photoActivity extends AppCompatActivity {
         icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(photoActivity.this , nameEditActivity.class);
-                startActivity(i);
+                i.putExtra("id",photoActivity.this.id);
+                i.putExtra("name",photoActivity.this.name);
+                startActivityForResult(i,3);
             }
 
         });
@@ -110,6 +197,8 @@ public class photoActivity extends AppCompatActivity {
         word.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(photoActivity.this, photoEditActivity.class);
+                i.putExtra("id",photoActivity.this.id);
+                i.putExtra("photo",photoActivity.this.photo);
                 startActivity(i);
             }
         });
@@ -117,6 +206,8 @@ public class photoActivity extends AppCompatActivity {
         icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(photoActivity.this , photoEditActivity.class);
+                i.putExtra("id",photoActivity.this.id);
+                i.putExtra("photo",photoActivity.this.photo);
                 startActivity(i);
             }
 
@@ -125,6 +216,8 @@ public class photoActivity extends AppCompatActivity {
         photo.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(photoActivity.this , photoEditActivity.class);
+                i.putExtra("id",photoActivity.this.id);
+                i.putExtra("photo",photoActivity.this.photo);
                 startActivity(i);
             }
 

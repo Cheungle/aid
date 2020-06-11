@@ -30,7 +30,7 @@
     <string name="photodes">personal photo</string>
     <string name="shownum">182****5882</string>
     <string name="showname">张三</string>
-    <string name="showitem_info">&#160;&#160;个人资料</string>
+    <string name="showitem_info">&#160;&#160;实名认证</string>
     <string name="showitem_mark">&#160;&#160;我的收藏</string>
     <string name="showitem_publish">&#160;&#160;我的发布</string>
     <string name="showitem_set">&#160;&#160;设置</string>
@@ -67,4 +67,8 @@
     <string name="title_task_resources">任务资源</string>
     <string name="new_TR">新建任务资源</string>
     <string name="accept_TR">认领</string>
+    <string name="name_text">昵称</string>
+    <string name="sex_text">性别</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
 </resources>

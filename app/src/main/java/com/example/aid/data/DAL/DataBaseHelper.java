@@ -127,7 +127,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "  FOREIGN KEY (`RC_ManagerID_fk`) REFERENCES `manager` (`Manager_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION" +
                 ") ");
         db.execSQL("INSERT INTO `user` VALUES ('15186861111','123456',1,'LU','image','上海',20,NULL,NULL),('15186862222','123456',0,'Li','image','北京',30,NULL,NULL);");
-        db.execSQL("INSERT INTO `manager` VALUES ('15186861111M','123');");
+        db.execSQL("INSERT INTO `manager` VALUES ('15186861111M','123456');");
         db.execSQL("INSERT INTO `theme` VALUES (1,'新冠病毒','2020-05-01','15186861111M'),(2,'今日确诊','2020-05-03','15186861111M');");
         db.execSQL("INSERT INTO `data` VALUES (1,'上海',26,'2020-05-01','国家卫健委');");
         db.execSQL("INSERT INTO `information` VALUES (1,'31省区市新增7例境外输入病例','5月25日0—24时，31个省（自治区、直辖市）和新疆生产建设兵团报告新增确诊病例7例，均为境外输入病例（内蒙古5例，上海1例，福建1例）；无新增死亡病例；无新增疑似病例。','2020-05-26','央视新闻');");

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.aid.ui.notifications.NotificationsFragment">
-    
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayoutM"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -25,12 +24,12 @@
             android:gravity="center">
 
             <Button
-                android:id="@+id/title_data1"
+                android:id="@+id/title_data1M"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="7dp"
-                android:layout_marginLeft="60dp"
+                android:layout_marginStart="60dp"
                 android:background="@drawable/btn_data"
                 android:text="我的"
                 android:textColor="#FFFFFF"
@@ -38,7 +37,7 @@
 
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/photoandinfo"
+            android:id="@+id/photoandinfoM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -46,7 +45,7 @@
             >
 
             <ImageView
-                android:id="@+id/photo"
+
                 android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="110dp"
@@ -57,14 +56,14 @@
                 android:src="@mipmap/photo" />
 
             <LinearLayout
-                android:id="@+id/beside"
+                android:id="@+id/besideM"
                 android:layout_weight="4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/user_name"
+                    android:id="@+id/manager_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -74,12 +73,12 @@
                     android:paddingStart="0dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:text="@string/showname"
+                    android:text="Manager"
                     android:textColor="@android:color/black"
                     android:textSize="28sp" />
 
                 <TextView
-                    android:id="@+id/user_phoneID"
+                    android:id="@+id/manager_phoneID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -91,26 +90,10 @@
                     android:textColor="@android:color/black"
                     android:textSize="17sp" />
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/arrow_Photo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingEnd="10dp"
-                android:paddingStart="0dp"
-                android:paddingTop="32dp"
-                android:paddingBottom="32dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="@string/angle_right"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/colorGray"
-                android:textSize="30sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/item_info"
+            android:id="@+id/m_task"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
@@ -119,7 +102,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/user_allinfo"
+                android:id="@+id/m_task_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -129,12 +112,12 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:drawableStart="@drawable/ic_tag_faces_black_24dp"
-                android:text="@string/showitem_info"
+                android:text="  任务资源管理"
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/arrow_Info"
+                android:id="@+id/arrow_taskM"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -158,7 +141,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/user_mark"
+                android:id="@+id/m_comment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -168,12 +151,12 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:drawableStart="@drawable/ic_folder_black_24dp"
-                android:text="@string/showitem_mark"
+                android:text="  评论管理"
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/arrow_Mark"
+                android:id="@+id/arrow_commentM"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -196,7 +179,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/user_publish"
+                android:id="@+id/m_theme_text"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
@@ -206,12 +189,12 @@
                 android:focusable="true"
                 android:paddingTop="19dp"
                 android:paddingBottom="19dp"
-                android:text="@string/showitem_publish"
+                android:text="  主题管理"
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/arrow_Publish"
+                android:id="@+id/arrow_themeM"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -234,45 +217,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/user_set"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:paddingTop="19dp"
-                android:paddingBottom="19dp"
-                android:layout_weight="8"
-                android:clickable="true"
-                android:focusable="true"
-                android:drawableStart="@drawable/ic_settings_black_24dp"
-                android:text="@string/showitem_set"
-                android:textColor="@android:color/black"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/arrow_Set"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="@string/angle_right"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/colorGray"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:layout_marginBottom="2dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/user_logout"
+                android:id="@+id/m_logout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -287,7 +232,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/arrow_Logout"
+                android:id="@+id/arrow_LogoutM"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -302,5 +247,4 @@
                 android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

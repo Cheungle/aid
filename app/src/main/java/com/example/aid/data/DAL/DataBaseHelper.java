@@ -13,6 +13,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db){
+        db.execSQL("CREATE TABLE `identity` (" +
+                "  `Ididentity_ID` varchar(18) PRIMARY KEY NOT NULL," +
+                "  `Identity_Name` varchar(15) NOT NULL" +
+                ")");
         db.execSQL("CREATE TABLE IF NOT EXISTS `user` (" +
                 "  `User_ID` char(12) PRIMARY KEY UNIQUE NOT NULL," +
                 "  `User_Pwd` varchar(15) NOT NULL," +
@@ -21,8 +25,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "  `User_Head` varchar(20) DEFAULT NULL," +
                 "  `User_Address` varchar(50) DEFAULT NULL," +
                 "  `User_Age` int(11) DEFAULT NULL," +
-                "  `User_Identity` varchar(18) DEFAULT NULL," +
-                "  `User_RealName` varchar(15) DEFAULT NULL" +
+                "  `User_Identity_fk` varchar(18) DEFAULT NULL," +
+                "  `User_RealName_fk` varchar(15) DEFAULT NULL," +
+                "  FOREIGN KEY (`User_Identity_fk`) REFERENCES `identity` (`Identity_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION," +
+                "  FOREIGN KEY (`User_RealName_fk`) REFERENCES `identity` (`Identity_Name`) ON DELETE NO ACTION ON UPDATE NO ACTION" +
                 ") ");
         db.execSQL("CREATE TABLE IF NOT EXISTS `manager` (" +
                 "  `Manager_ID` char(13) PRIMARY KEY UNIQUE NOT NULL," +
@@ -126,6 +132,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "  FOREIGN KEY (`RC_ID_fk`) REFERENCES `comment` (`Comment_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION," +
                 "  FOREIGN KEY (`RC_ManagerID_fk`) REFERENCES `manager` (`Manager_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION" +
                 ") ");
+        db.execSQL("INSERT INTO `identity` VALUES ('52263319990621001X','李四');");
         db.execSQL("INSERT INTO `user` VALUES ('15186861111','123456',1,'LU','image','上海',20,NULL,NULL),('15186862222','123456',0,'Li','image','北京',30,NULL,NULL);");
         db.execSQL("INSERT INTO `manager` VALUES ('15186861111M','123456');");
         db.execSQL("INSERT INTO `theme` VALUES (1,'新冠病毒','2020-05-01','15186861111M'),(2,'今日确诊','2020-05-03','15186861111M');");

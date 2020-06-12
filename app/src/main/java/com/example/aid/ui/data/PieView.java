@@ -53,10 +53,10 @@ public class PieView extends View {
     private float mRadius;
 
     /** 中心孔占外圆半径的百分比*/
-    private float mHoleRadiusPercent = Config.DEFAULT_HOLE_RADIUS_PERCENT;
+    private float mHoleRadiusPercent = 0;
 
     /** 内透明圆占外圆半径的百分比*/
-    private float mAlphaRadiusPercent = Config.DEFAULT_ALPHA_RADIUS_PERCENT;
+    private float mAlphaRadiusPercent = 0;
 
     /** 凸起板块之间的间距*/
     private int mSpace = Config.DEFAULT_BLOCK_SPACE;
@@ -439,10 +439,11 @@ public class PieView extends View {
      *
      * @param holeRadiusPercent the hole radius percent
      */
-    public PieView setHoleRadiusPercent(@FloatRange(from = 0, to = 1.0f) float holeRadiusPercent) {
+    //中心孔
+    /*public PieView setHoleRadiusPercent(@FloatRange(from = 0, to = 1.0f) float holeRadiusPercent) {
         this.mHoleRadiusPercent = holeRadiusPercent;
         return this;
-    }
+    }*/
 
     /**
      * Gets alpha radius percent.
@@ -458,10 +459,11 @@ public class PieView extends View {
      *
      * @param alphaRadiusPercent the alpha radius percent
      */
-    public PieView setAlphaRadiusPercent(@FloatRange(from = 0, to = 1.0f) float alphaRadiusPercent) {
+    //半透明
+    /*public PieView setAlphaRadiusPercent(@FloatRange(from = 0, to = 1.0f) float alphaRadiusPercent) {
         this.mAlphaRadiusPercent = alphaRadiusPercent;
         return this;
-    }
+    }*/
 
     /**
      * Gets space.

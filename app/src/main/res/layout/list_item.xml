@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/first"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -17,7 +18,7 @@
             android:src="@drawable/image1"
             />
         <TextView
-            android:id="@+id/cardTitle"
+            android:id="@+id/cardSource"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/cardImg"
@@ -25,10 +26,24 @@
             android:textColor="#000000"
             android:paddingLeft="5dp"
             android:text="我的昵称" />
-
-
     </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#D5D5D5"/>
+    <TextView
 
+        android:id="@+id/cardTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:paddingLeft="5dp"
+        android:text="31省新增7例境外输入"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="0dp"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -44,7 +59,9 @@
         android:maxLines="3"
         android:ellipsize="end"
         android:textColor="#000000"
-        android:text="这里消息"/>
+        android:text="这里消息"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
     <ImageView
         android:id="@+id/cardImg1"
         android:layout_width="match_parent"

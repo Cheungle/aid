@@ -68,7 +68,23 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="#D5D5D5"/>
-
+        <TextView
+            android:padding="4dp"
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:ellipsize="end"
+            android:textColor="#000000"
+            android:text="这里标题"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#D5D5D5"/>
         <TextView
             android:padding="4dp"
             android:id="@+id/tv_message"

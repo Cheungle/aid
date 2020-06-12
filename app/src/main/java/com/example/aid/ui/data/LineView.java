@@ -34,7 +34,7 @@ public class LineView extends View {
     private int[] yLables = {1, 6, 11, 16, 21, 26}; //固定y轴数字
     private Context mContext;
     private List<String> xValues = new ArrayList<>();
-    private List<Float> yValues = new ArrayList<>();
+    private List<Integer> yValues = new ArrayList<>();
     private int mWidth;
     private int mHeight;
     private int originX; // 原点x坐标
@@ -51,8 +51,8 @@ public class LineView extends View {
     private int textToXYAxisGap = dip2px(10); // xy轴的文字距xy线的距离
     private int lableCountY = yLables.length; // Y轴刻度个数
     private int leftRightExtra = intervalX / 3; //x轴左右向外延伸的长度
-    private float minValueY = 1; // y轴最小值
-    private float maxValueY = 26; // y轴最大值
+    private int  minValueY = 1; // y轴最小值
+    private int  maxValueY = 26; // y轴最大值
     private int bigCircleR = 7; //折线图中的圆圈
     private int smallCircleR = 5; //折线图中为了避免折线穿透的圆圈
 
@@ -221,7 +221,7 @@ public class LineView extends View {
     private void drawLine(Canvas canvas) {
 //        canvas.save();
         // 画折线
-        float aver = (lableCountY - 1) * intervalY / (maxValueY - minValueY); //y轴最小单位的距离
+        int aver = (lableCountY - 1) * intervalY / (maxValueY - minValueY); //y轴最小单位的距离
         Path path = new Path();
         //先移动到第一个点的位置
         path.moveTo(firstPointX, mHeight - paddingBottom - leftRightExtra - yValues.get(0) * aver + minValueY * aver);
@@ -323,7 +323,7 @@ public class LineView extends View {
         this.xValues = values;
     }
 
-    public void setYValues(List<Float> values) {
+    public void setYValues(List<Integer> values) {
         this.yValues = values;
         for (int i = 0; i < yValues.size(); i++) {
             // 找出y轴的最大最小值

@@ -1,6 +1,8 @@
 package com.example.aid.ui.info;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.icu.text.CaseMap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,40 +25,58 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.aid.MainActivity;
 import com.example.aid.R;
+import com.example.aid.data.DAL.DataBaseHelper;
+import com.example.aid.data.DAL.UserDAL;
 import com.example.aid.data1Activity;
 import com.example.aid.detailActivity;
+import com.example.aid.ui.login.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.example.aid.data.DAL.InfoDAL;
+import com.example.aid.data.DAL.DataBaseHelper;
+
+import java.sql.SQLException;
+import android.database.Cursor;
+
 
 public class infoFragment extends Fragment {
+    private int j=0;
+    private String Source1[]=new String[100];
+    private String Title1[]=new String[100];
+    private String Content1[]=new String[100];
+    private String Images11[]=new String[100];
+    private String Images21[]=new String[100];
+    int Images12[]=new int[100];
+    int Images22[]=new int[100];
     private Button mBtntitle1;
     private Button mBtntitle2;
     private Spinner mspinner;
-    private String zhye;
+    private int zhye;
     private ArrayAdapter<String> adapter;
+    final InfoDAL InfoDAL = new InfoDAL(getActivity());
+    InfoDAL dbHelper;
+    private String[] Title={"人民日报"};
+    private String[] Source={"人民日报"};
+    private int[] Images={R.drawable.ic_dashboard_black_24dp,R.drawable.ic_dashboard_black_24dp,R.drawable.ic_dashboard_black_24dp};
+    private int[] Images1={R.drawable.num1,R.drawable.ic_dashboard_black_24dp,R.drawable.ic_dashboard_black_24dp};
+    private String[] Content={"【最新数据：全球新冠肺炎超415万例】截至北京时间5月12日18时，214个国家和地区累计确诊4154730例，“钻石公主”号邮轮712例，全球新冠肺炎累计死亡286360例，其中，美国新冠肺炎病例超134万。"};
 
-    private String[] Title={"人民日报","央视新闻","人民日报","澎湃新闻"};
-
-    private int[] Images={R.drawable.ic_dashboard_black_24dp,R.drawable.ic_home_black_24dp,R.drawable.ic_notifications_black_24dp,R.drawable.ic_dashboard_black_24dp};
-    private int[] Images1={R.drawable.num1,R.drawable.ic_home_black_24dp,R.drawable.ic_notifications_black_24dp,R.drawable.ic_dashboard_black_24dp};
-    private String[] Content={"【最新数据：全球新冠肺炎超415万例】截至北京时间5月12日18时，214个国家和地区累计确诊4154730例，“钻石公主”号邮轮712例，全球新冠肺炎累计死亡286360例，其中，美国新冠肺炎病例超134万。",
-            "广东疫情最新消息",
-            "北京疫情最新消息",
-            "上海疫情最新消息"};
 
     //将数据封装成数据源
     List<Map<String,Object>> list=new ArrayList<Map<String, Object>>();
     private infoViewModel homeViewModel;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         homeViewModel =
                 ViewModelProviders.of(this).get(infoViewModel.class);
-       final View root = inflater.inflate(R.layout.fragment_info,container,false);
+        final View root = inflater.inflate(R.layout.fragment_info,container,false);
 
         BottomNavigationView navView = root.findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -64,7 +84,7 @@ public class infoFragment extends Fragment {
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
-
+        dbHelper = new InfoDAL(getActivity());
 
         mBtntitle1 = (Button) root.findViewById(R.id.title_data);
         mBtntitle1.setOnClickListener(new View.OnClickListener() {
@@ -83,16 +103,7 @@ public class infoFragment extends Fragment {
             }
         });
 
-        for(int i=0;i<Title.length;i++){
-            Map<String,Object> map=new HashMap<String, Object>();
-            map.put("title",Title[i]);
-            map.put("img",Images[i]);
-            map.put("img1",Images1[i]);
-            map.put("content",Content[i]);
-            list.add(map);
-        }
-        ListView listview=(ListView)root.findViewById(R.id.listView);
-        listview.setAdapter(new MyAdapter());
+
 
 
 
@@ -107,28 +118,32 @@ public class infoFragment extends Fragment {
         mspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             private String positions;
-
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 positions = adapter.getItem(position);
+
                 if (positions.equals("全部")){
-                    zhye=2+"";
+                    zhye=2;
 
                     Toast.makeText(getActivity(), "全部", Toast.LENGTH_SHORT).show();
                 }else if (positions.equals("数据")){
-                    zhye=3+"";
+                    zhye=3;
                     Toast.makeText(getActivity(), "数据", Toast.LENGTH_SHORT).show();
 
                 }else if (positions.equals("预防")){
-                    zhye=4+"";
+                    zhye=4;
                     Toast.makeText(getActivity(), "预防", Toast.LENGTH_SHORT).show();
 
                 }else if (positions.equals("重要")){
-                    zhye=5+"";
+                    zhye=5;
                     Toast.makeText(getActivity(), "重要", Toast.LENGTH_SHORT).show();
 
                 }
                 parent.setVisibility(View.VISIBLE);
+
+
+
+
             }
 
             @Override
@@ -136,20 +151,46 @@ public class infoFragment extends Fragment {
                 parent.setVisibility(View.VISIBLE);
             }
         });
+        Log.v("zhye",String.valueOf(zhye));
+
+
+        ListView listview=(ListView)root.findViewById(R.id.listView);
+        listview.setAdapter(new MyAdapter());
+        Cursor cursor = dbHelper.info(zhye);
+        while (cursor.moveToNext()){
+            Source1[j]=cursor.getString(cursor.getColumnIndexOrThrow("Info_Source"));
+            Title1[j]=cursor.getString(cursor.getColumnIndexOrThrow("Info_Title"));
+            Content1[j]=cursor.getString(cursor.getColumnIndexOrThrow("Info_Content"));
+            Images11[j]= cursor.getString(cursor.getColumnIndexOrThrow("Info_Image1"));
+            Images21[j]= cursor.getString(cursor.getColumnIndexOrThrow("Info_Image2"));
+            Log.v("tupian", String.valueOf(Images11[0]));
+            j=j+1;
+        }
+        for(int i=0;i<j;i++){
+            Map<String,Object> map=new HashMap<String, Object>();
+            map.put("source",Source1[i]);
+            map.put("title",Title1[i]);
+            map.put("img",Images[i]);
+            map.put("img1",Images1[i]);
+            map.put("content",Content1[i]);
+            list.add(map);
+        }
 
         ListView listView = (ListView) root.findViewById(R.id.listView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Bundle bundle = new Bundle();
                 bundle.putInt("photo", Images[position]);
                 bundle.putInt("photo2", Images1[position]);
-                bundle.putString("title", Title[position]);
-                bundle.putString("message", Content[position]);
+                bundle.putString("source", Source1[position]);
+                bundle.putString("title", Title1[position]);
+                bundle.putString("message", Content1[position]);
                 Intent intent = new Intent();
                 intent.putExtras(bundle);
                 intent.setClass(getActivity(), detailActivity.class);
-                Log.i("message", Content[position]);
+                Log.i("message", Content1[position]);
                 startActivity(intent);
 
             }
@@ -184,6 +225,7 @@ public class infoFragment extends Fragment {
             if(convertView==null){
                 view= LayoutInflater.from(getActivity()).inflate(R.layout.list_item,null);
                 mHolder=new ViewHolder();
+                mHolder.card_source=(TextView)view.findViewById(R.id.cardSource);
                 mHolder.card_title=(TextView)view.findViewById(R.id.cardTitle);
                 mHolder.card_image=(ImageView)view.findViewById(R.id.cardImg);
                 mHolder.card_image1=(ImageView)view.findViewById(R.id.cardImg1);
@@ -193,6 +235,7 @@ public class infoFragment extends Fragment {
                 view=convertView;
                 mHolder=(ViewHolder)view.getTag();  //重新获得ViewHolder
             }
+            mHolder.card_source.setText(list.get(position).get("source").toString());
             mHolder.card_title.setText(list.get(position).get("title").toString());
             mHolder.card_image.setImageResource((int)list.get(position).get("img"));
             mHolder.card_image1.setImageResource((int)list.get(position).get("img1"));
@@ -202,6 +245,7 @@ public class infoFragment extends Fragment {
     }
 
     class ViewHolder{
+        TextView card_source;
         TextView card_title;
         ImageView card_image;
         ImageView card_image1;

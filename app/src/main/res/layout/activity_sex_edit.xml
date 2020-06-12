@@ -32,7 +32,8 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:background="@color/colorPrimary"
-            android:text="女"
+            android:textOn="女"
+            android:textOff="男"
             android:textSize="23sp"/>
         <Switch
             android:id="@+id/switch_showsex"
@@ -43,7 +44,8 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:background="@color/colorPrimary"
-            android:text="是否对他人显示"
+            android:checked="true"
+            android:text="对他人显示"
             android:textSize="23sp"/>
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

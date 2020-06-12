@@ -127,6 +127,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/didian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="北京"
@@ -136,11 +137,13 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
+                            android:id="@+id/siwang"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="死亡人数："
                             android:textSize="15sp"/>
                         <TextView
+                            android:id="@+id/dienum"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
@@ -151,11 +154,13 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
+                            android:id="@+id/zhiyu"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="治愈人数："
                             android:textSize="15sp"/>
                         <TextView
+                            android:id="@+id/zhiyunum"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="20"
@@ -166,11 +171,13 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
+                            android:id="@+id/xinzeng"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="昨日新增："
                             android:textSize="15sp"/>
                         <TextView
+                            android:id="@+id/xinzengnum"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
@@ -259,7 +266,7 @@
                                 android:layout_height="20dp"
                                 android:layout_marginLeft="10dp"
                                 android:gravity="center"
-                                android:text="单柱状图"
+                                android:text="人数最多省份人数"
                                 android:textColor="@color/color2"
                                 android:textSize="13sp" />
 
@@ -317,7 +324,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="3dp"
-                                android:text="去年"
+                                android:text="昨天"
                                 android:textColor="@color/color2"
                                 android:textSize="12sp" />
 
@@ -331,7 +338,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="3dp"
-                                android:text="今年"
+                                android:text="今天"
                                 android:textColor="@color/color2"
                                 android:textSize="12sp" />
 
@@ -356,7 +363,7 @@
                                 android:layout_height="20dp"
                                 android:layout_marginLeft="10dp"
                                 android:gravity="center"
-                                android:text="双柱状图"
+                                android:text="人数最多今昨两日对比"
                                 android:textColor="@color/color2"
                                 android:textSize="13sp" />
 
@@ -383,7 +390,7 @@
                     android:layout_below="@+id/tu2"
                     android:orientation="vertical"
                     android:layout_marginBottom="50dp">
-                    <LinearLayout
+                    <!--<LinearLayout
                         android:layout_below="@+id/tu2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -402,15 +409,15 @@
                             android:layout_height="match_parent" />
                     </LinearLayout>
 
-                    <View
+                    -<View
                         android:layout_width="match_parent"
                         android:layout_height="1px"
                         android:background="#F5F6F9"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"/>
+-->
 
-
-                    <LinearLayout
+                    <!--<LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
@@ -426,15 +433,14 @@
                             android:id="@+id/sb_hole_circle_radius"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
-                    </LinearLayout>
+                    </LinearLayout>-->
 
-                    <View
+                    <!--<View
                         android:layout_width="match_parent"
                         android:layout_height="1px"
                         android:background="#F5F6F9"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"/>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -451,7 +457,7 @@
                             android:id="@+id/sb_alpha_circle_alpha"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
-                    </LinearLayout>
+                    </LinearLayout>-->
 
                     <View
                         android:layout_width="match_parent"
@@ -470,43 +476,43 @@
                             android:id="@+id/tv_show_percentage"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="百分比展示"
+                            android:text="死亡治愈百分比展示"
                             android:textStyle="bold"
                             android:padding="10dp"
                             android:gravity="center"
                             android:background="?android:attr/selectableItemBackground"/>
 
-                        <TextView
-                            android:id="@+id/tv_block_up"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="含重点数据"
-                            android:textStyle="bold"
-                            android:padding="10dp"
-                            android:gravity="center"
-                            android:background="?android:attr/selectableItemBackground"/>
+                        <!-- <TextView
+                             android:id="@+id/tv_block_up"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="含重点数据"
+                             android:textStyle="bold"
+                             android:padding="10dp"
+                             android:gravity="center"
+                             android:background="?android:attr/selectableItemBackground"/>
 
-                        <TextView
-                            android:id="@+id/tv_default_data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="普通数据"
-                            android:textStyle="bold"
-                            android:padding="10dp"
-                            android:gravity="center"
-                            android:background="?android:attr/selectableItemBackground"/>
+                         <TextView
+                             android:id="@+id/tv_default_data"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="普通数据"
+                             android:textStyle="bold"
+                             android:padding="10dp"
+                             android:gravity="center"
+                             android:background="?android:attr/selectableItemBackground"/>
 
-                        <TextView
-                            android:id="@+id/tv_center_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="中心文字"
-                            android:textStyle="bold"
-                            android:padding="10dp"
-                            android:gravity="center"
-                            android:background="?android:attr/selectableItemBackground"/>
+                         <TextView
+                             android:id="@+id/tv_center_text"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="中心文字"
+                             android:textStyle="bold"
+                             android:padding="10dp"
+                             android:gravity="center"
+                             android:background="?android:attr/selectableItemBackground"/>
 
-
+ -->
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"

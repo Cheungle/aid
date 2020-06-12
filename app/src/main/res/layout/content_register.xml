@@ -22,20 +22,20 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/identity_text"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/input_identity_text"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
                     android:hint="phone number"
                     android:maxLines="1"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
             </LinearLayout>
         <LinearLayout
             android:id="@+id/item_password"
@@ -50,29 +50,90 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/password_text"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/input_password"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:hint="*****"
                 android:maxLines="1"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/item_Name"
+            android:layout_width="410dp"
+            android:layout_height="76dp"
+            android:layout_below="@id/item_password"
+            android:layout_marginTop="67dp"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="62dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/name_text"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/input_name_text"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:hint="name"
+                android:maxLines="1"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/item_sex"
+            android:layout_width="410dp"
+            android:layout_height="76dp"
+            android:layout_below="@id/item_Name"
+            android:layout_marginTop="67dp"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="62dp">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButtonman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:checked="true"
+                    android:text="@string/man"
+                    android:textSize="25sp" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonWoman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:text="@string/woman"
+                    android:textSize="25sp" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/register_btns"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/item_password"
-            android:layout_marginTop="40dp"
+            android:layout_below="@id/item_Name"
+            android:layout_marginTop="180dp"
             android:orientation="horizontal"
             tools:layout_editor_absoluteX="36dp"
             tools:layout_editor_absoluteY="-2dp">
@@ -82,35 +143,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:layout_marginStart="48dp"
-                android:layout_marginEnd="48dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginEnd="50dp"
                 android:layout_marginBottom="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_circle"
+                android:text="signup"
                 android:textColor="@color/cardview_light_background"
-                android:enabled="false"
-                android:text="Sign up"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.127"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/register_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="start"
-                android:layout_marginStart="48dp"
-                android:layout_marginEnd="48dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/btn_circle"
-                android:textColor="@color/cardview_light_background"
-                android:text="back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.894"
                 app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/register_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="45dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_circle"
+                android:text="back"
+                android:textColor="@color/cardview_light_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.894"
+                app:layout_constraintStart_toStartOf="parent" />
+
         </LinearLayout>
+
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -61,7 +61,7 @@ public class CustomBarChart extends View {
     public void init() {
         xPoint = margin + marginX;
         yPoint = this.getHeight() - margin;
-        xScale = (this.getWidth() - 2 * margin - marginX) / (xLabel.length - 1);
+        xScale = (this.getWidth() - 5 * margin - marginX) / (xLabel.length - 1);
         yScale = (this.getHeight() - 2 * margin) / (yLabel.length - 1);
 
         paintAxes = new Paint();
@@ -76,7 +76,7 @@ public class CustomBarChart extends View {
         paintCoordinate.setDither(true);
         paintCoordinate.setAntiAlias(true);
         paintCoordinate.setColor(ContextCompat.getColor(getContext(), R.color.color11));
-        paintCoordinate.setTextSize(15);
+        paintCoordinate.setTextSize(20);
 
         paintRectF = new Paint();
         paintRectF.setStyle(Paint.Style.FILL);
@@ -89,7 +89,7 @@ public class CustomBarChart extends View {
         paintValue.setAntiAlias(true);
         paintValue.setDither(true);
         paintValue.setTextAlign(Paint.Align.CENTER);
-        paintValue.setTextSize(10);
+        paintValue.setTextSize(15);
     }
 
     @Override
@@ -175,7 +175,7 @@ public class CustomBarChart extends View {
     private void drawBar(Canvas canvas, Paint paint, int data[], List<Integer> colorList) {
         for (int i = 1; i <= (xLabel.length - 1); i++) {
             int startX = xPoint + i * xScale;
-            RectF rect = new RectF(startX - 5, toY(data[i - 1]), startX + 5, this.getHeight() - margin - 2);
+            RectF rect = new RectF(startX - 20, toY(data[i - 1]), startX + 20, this.getHeight() - margin - 2);
             if (i % 2 == 1) {
                 paint.setColor(ContextCompat.getColor(getContext(), colorList.get(0)));
             } else {
@@ -192,12 +192,12 @@ public class CustomBarChart extends View {
         for (int i = 1; i <= (xLabel.length - 1); i++) {
             int startX = xPoint + i * xScale;
             paint.setColor(ContextCompat.getColor(getContext(), colorList.get(0)));
-            RectF rect1 = new RectF(startX - 20, toY(dataList.get(0)[i - 1]), startX - 10,
+            RectF rect1 = new RectF(startX - 40, toY(dataList.get(0)[i - 1]), startX -10,
                     this.getHeight() - margin - 2);
             canvas.drawRect(rect1, paint);
 
             paint.setColor(ContextCompat.getColor(getContext(), colorList.get(1)));
-            RectF rect2 = new RectF(startX - 5, toY(dataList.get(1)[i - 1]), startX + 5,
+            RectF rect2 = new RectF(startX - 5, toY(dataList.get(1)[i - 1]), startX + 35,
                     this.getHeight() - margin - 2);
             canvas.drawRect(rect2, paint);
         }
@@ -209,7 +209,7 @@ public class CustomBarChart extends View {
     private void drawValue(Canvas canvas, Paint paint, int data[], int color) {
         paint.setColor(ContextCompat.getColor(getContext(), color));
         for (int i = 1; i <= (xLabel.length - 1); i++) {
-            canvas.drawText(data[i - 1] + "w", xPoint + i * xScale, toY(data[i - 1]) - 5, paintValue);
+            canvas.drawText(data[i - 1] + "例", xPoint + i * xScale, toY(data[i - 1]) - 5, paintValue);
         }
     }
 
@@ -230,9 +230,9 @@ public class CustomBarChart extends View {
                     offsetY1 += 10;
                 }
             }
-            canvas.drawText(dataList.get(0)[i - 1] + "w", startX - 18,
+            canvas.drawText(dataList.get(0)[i - 1] + "例", startX - 25,
                     toY(dataList.get(0)[i - 1]) - offsetY1, paintValue);
-            canvas.drawText(dataList.get(1)[i - 1] + "w", startX + 3,
+            canvas.drawText(dataList.get(1)[i - 1] + "例", startX + 15,
                     toY(dataList.get(1)[i - 1]) - offsetY2, paintValue);
         }
     }
@@ -243,7 +243,7 @@ public class CustomBarChart extends View {
     private float toY(int num) {
         float y;
         try {
-            float a = (float) num / 100.0f;
+            int a = (int) num /100;
             y = yPoint - a * yScale;
         } catch (Exception e) {
             return 0;

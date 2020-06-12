@@ -24,6 +24,11 @@
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
+        android:id="@+id/navigation_notificationsM"
+        android:name="com.example.aid.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
         android:id="@+id/navigation_forum"
         android:name="com.example.aid.ui.forum.ForumFragment"
         android:label="Forum"

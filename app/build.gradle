@@ -26,6 +26,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
 }
 
 dependencies {
@@ -54,5 +57,4 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation files('libs/mysql-connector-java-5.1.49-bin.jar')
-
 }

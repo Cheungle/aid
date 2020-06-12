@@ -23,14 +23,17 @@ public class detailActivity extends AppCompatActivity {
         int id2=bundle.getInt("photo2");
         String message=bundle.getString("message");
         String title=bundle.getString("title");
+        String source=bundle.getString("source");
         ImageView Iv=(ImageView) findViewById(R.id.Iv);
         Iv.setImageResource(id);
-       ImageView Iv2=(ImageView) findViewById(R.id.Iv2);
+        ImageView Iv2=(ImageView) findViewById(R.id.Iv2);
         Iv2.setImageResource(id2);
         TextView tv=(TextView) findViewById(R.id.tv_message);
         tv.setText(message);
         TextView name=(TextView) findViewById(R.id.name);
-        name.setText(title);
+        name.setText(source);
+        TextView tv_title=(TextView) findViewById(R.id.tv_title);
+        tv_title.setText(title);
 
 
 

@@ -24,6 +24,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.example.aid.ui.notifications.ClearEditText
+        android:id="@+id/age_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorGray"
@@ -51,8 +52,9 @@
             android:paddingStart="10dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
+            android:checked="true"
             android:background="@color/colorPrimary"
-            android:text="是否对他人显示"
+            android:text="对他人显示"
             android:textSize="23sp"/>
 
     </LinearLayout>

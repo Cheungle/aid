@@ -71,4 +71,5 @@
     <string name="sex_text">性别</string>
     <string name="man">男</string>
     <string name="woman">女</string>
+    <string name="star">收藏</string>
 </resources>

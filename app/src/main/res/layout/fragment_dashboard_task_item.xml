@@ -13,7 +13,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="0dp"
         android:background="#FFFFFF"
         android:text="@string/TR_sponsor"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="0dp"
         android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="@id/task_sponsor"
         app:layout_constraintTop_toTopOf="parent" />
@@ -120,7 +120,7 @@
         android:background="#EFAA52"
         android:layout_width="80dp"
         android:layout_height="40dp"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/task_content_detail" />
@@ -131,7 +131,18 @@
         android:background="#EFAA52"
         android:layout_width="80dp"
         android:layout_height="40dp"
-        android:layout_marginStart="240dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/task_content_detail" />
+
+    <Button
+        android:id="@+id/star_task"
+        android:text="@string/star"
+        android:background="#EFAA52"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="270dp"
         android:layout_marginTop="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/task_content_detail" />

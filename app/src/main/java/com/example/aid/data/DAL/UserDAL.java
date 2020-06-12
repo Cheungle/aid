@@ -3,11 +3,14 @@ package com.example.aid.data.DAL;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.ContactsContract;
 import android.util.Log;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import com.example.aid.data.model.identity;
 import com.example.aid.data.model.user;
 import com.example.aid.ui.login.LoginActivity;
 
@@ -72,6 +75,15 @@ public class UserDAL  {
         cursor.close();
         return base;
     }
+    public identity selectIdentity(String id){
+        SQLiteDatabase db=dbhelper.getReadableDatabase();
+        String sql = "select User_Identity_fk,User_RealName_fk from user where User_ID='" + id + "'";
+        Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+        identity iden = new identity(cursor.getString(0),cursor.getString(1));
+        cursor.close();
+        return iden;
+    }
     public void updateAge(String age,String id){
         SQLiteDatabase db=dbhelper.getWritableDatabase();
         String sql = "update user set User_Age ='" + age + "' where User_ID = '"+ id +"'";
@@ -85,6 +97,11 @@ public class UserDAL  {
     public void updateName(String name,String id){
         SQLiteDatabase db=dbhelper.getWritableDatabase();
         String sql = "update user set User_Name ='" + name + "' where User_ID = '"+ id +"'";
+        db.execSQL(sql);
+    }
+    public void updateIdentity(String id,String ID,String name){
+        SQLiteDatabase db=dbhelper.getWritableDatabase();
+        String sql = "update user set User_Identity_fk ='" + ID + "',User_RealName_fk='"+ name +"' where User_ID = '"+ id +"'";
         db.execSQL(sql);
     }
 }

@@ -85,6 +85,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+        //忘记密码
+        TextView forget = findViewById(R.id.forgetPwd);
+        forget.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent i = new Intent(LoginActivity.this , ForgetPwdActivity.class);
+                startActivity(i);
+            }
+        });
     }
     private void editColorChange() {
         EditText inputID = (EditText) findViewById(R.id.ID);

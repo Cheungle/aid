@@ -72,4 +72,6 @@
     <string name="man">男</string>
     <string name="woman">女</string>
     <string name="star">收藏</string>
+    <string name="recipient">认领人</string>
+    <string name="finish_status">完成状态</string>
 </resources>

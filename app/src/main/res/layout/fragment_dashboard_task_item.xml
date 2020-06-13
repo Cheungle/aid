@@ -31,32 +31,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/task_time"
-        android:layout_width="60dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="20dp"
-        android:background="#FFFFFF"
-        android:text="@string/TR_time"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/task_sponsor"/>
-
-    <TextView
-        android:id="@+id/task_time_detail"
-        android:layout_width="290dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
-        android:background="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@id/task_time"
-        app:layout_constraintTop_toTopOf="@id/task_sponsor_detail" />
-
-    <TextView
         android:id="@+id/task_location"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:background="#FFFFFF"
         android:text="@string/TR_location"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,14 +49,14 @@
         android:background="#FFFFFF"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="@id/task_location"
-        app:layout_constraintTop_toTopOf="@id/task_time_detail" />
+        app:layout_constraintTop_toTopOf="@id/task_sponsor_detail" />
 
     <TextView
         android:id="@+id/task_task_time"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:background="#FFFFFF"
         android:text="@string/T_time"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +77,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:background="#FFFFFF"
         android:text="@string/T_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,6 +93,48 @@
         app:layout_constraintStart_toStartOf="@id/task_content"
         app:layout_constraintTop_toTopOf="@id/task_task_time_detail" />
 
+    <TextView
+        android:id="@+id/task_recipient"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="140dp"
+        android:background="#FFFFFF"
+        android:text="@string/finish_status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/task_sponsor"/>
+
+    <TextView
+        android:id="@+id/task_recipient_detail"
+        android:layout_width="290dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/task_recipient"
+        app:layout_constraintTop_toTopOf="@id/task_content_detail" />
+
+    <TextView
+        android:id="@+id/task_status"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="120dp"
+        android:background="#FFFFFF"
+        android:text="@string/recipient"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/task_sponsor"/>
+
+    <TextView
+        android:id="@+id/task_status_detail"
+        android:layout_width="290dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="80dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/task_recipient"
+        app:layout_constraintTop_toTopOf="@id/task_content_detail" />
+
     <Button
         android:id="@+id/chat_with_task_sponsor"
         android:text="@string/chat_with_sponsor_button"
@@ -121,7 +142,7 @@
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/task_content_detail" />
 
@@ -132,7 +153,7 @@
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/task_content_detail" />
 
@@ -143,7 +164,7 @@
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginStart="270dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/task_content_detail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

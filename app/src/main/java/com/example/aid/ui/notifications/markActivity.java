@@ -94,7 +94,7 @@ public class markActivity extends AppCompatActivity {
 
     private void getTaskData(){
         //call DBOpenHelper
-        DataBaseHelper helper = new DataBaseHelper(getActivity());
+        DataBaseHelper helper = new DataBaseHelper(markActivity.this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
         String sql = "select User_Name, Task_Place, Task_Time, Task_Content from user,task where Task_Type=1 and Task_CreatorID_fk = User_ID";
@@ -122,7 +122,7 @@ public class markActivity extends AppCompatActivity {
 
     private void getResourcesData(){
         //call DBOpenHelper
-        DataBaseHelper helper = new DataBaseHelper(getActivity());
+        DataBaseHelper helper = new DataBaseHelper(markActivity.this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
         String sql = "select User_Name, Task_Place, Task_Time, Task_Content from user,task where Task_Type=2 and Task_CreatorID_fk = User_ID";

@@ -79,8 +79,10 @@ public class UserDAL  {
         SQLiteDatabase db=dbhelper.getReadableDatabase();
         String sql = "select User_Identity_fk,User_RealName_fk from user where User_ID='" + id + "'";
         Cursor cursor = db.rawQuery(sql,null);
-        cursor.moveToFirst();
-        identity iden = new identity(cursor.getString(0),cursor.getString(1));
+        identity iden;
+        if(cursor.moveToFirst())
+        iden = new identity(cursor.getString(0),cursor.getString(1));
+        else iden = new identity("","");
         cursor.close();
         return iden;
     }

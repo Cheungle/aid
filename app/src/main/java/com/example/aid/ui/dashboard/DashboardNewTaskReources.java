@@ -41,7 +41,8 @@ public class DashboardNewTaskReources extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_dashboard_new_task_resources);
-
+        Log.v("tag","here");
+        new_time_btn = findViewById(R.id.new_time_btn);
         new_time_btn.setText(pubFun.format(calendar.getTime()));
 
         new_time_btn.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +56,7 @@ public class DashboardNewTaskReources extends AppCompatActivity {
                 saveInfo();
             }
         });*/
-
+        cancel_btn = findViewById(R.id.new_TR_cancel_button);
         cancel_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 exit();

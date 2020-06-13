@@ -33,7 +33,7 @@
     <string name="showitem_info">&#160;&#160;实名认证</string>
     <string name="showitem_mark">&#160;&#160;我的收藏</string>
     <string name="showitem_publish">&#160;&#160;我的发布</string>
-    <string name="showitem_set">&#160;&#160;设置</string>
+    <string name="showitem_set">&#160;&#160;我的认领</string>
     <string name="showitem_logout">&#160;&#160;退出账号</string>
     <string name="title_activity_photo">个人信息</string>
     <string name="info_photo">头像</string>

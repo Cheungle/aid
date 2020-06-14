@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/reviewd_sponsor"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
+        android:background="#FFFFFF"
+        android:text="@string/TR_sponsor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/reviewd_sponsor_detail"
+        android:layout_width="290dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="0dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/reviewd_sponsor"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/reviewd_type"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:text="类型"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/revired_type_text"
+        android:layout_width="290dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/reviewd_type"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/reviewd_location"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:text="@string/TR_location"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/reviewd_type"/>
+
+    <TextView
+        android:id="@+id/reviewd_location_detail"
+        android:layout_width="290dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="60dp"
+        android:background="#FFFFFF"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="@id/reviewd_location"
+        app:layout_constraintTop_toTopOf="@id/reviewd_sponsor_detail" />
+
+    <TextView
+        android:id="@+id/reviewd_task_time"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
+        android:text="时间"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/reviewd_sponsor"/>
+
+    <TextView
+        android:id="@+id/reviewd_task_time_detail"
+        android:layout_width="290dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/reviewd_task_time"
+        app:layout_constraintTop_toTopOf="@id/reviewd_location_detail" />
+
+    <TextView
+        android:id="@+id/reviewd_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="80dp"
+        android:background="#FFFFFF"
+        android:text="内容"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/reviewd_sponsor"/>
+
+    <TextView
+        android:id="@+id/reviewd_content_detail"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/reviewd_content"
+        app:layout_constraintTop_toTopOf="@id/reviewd_task_time_detail" />
+
+
+    <TextView
+        android:id="@+id/reviewd_status"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="140dp"
+        android:background="#FFFFFF"
+        android:text="@string/recipient"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/reviewd_sponsor"/>
+
+    <TextView
+        android:id="@+id/reviewd_status_detail"
+        android:layout_width="290dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/reviewd_recipient"
+        app:layout_constraintTop_toTopOf="@id/reviewd_content_detail" />
+    <TextView
+        android:id="@+id/reviewd_recipient"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="160dp"
+        android:background="#FFFFFF"
+        android:text="@string/finish_status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/reviewd_sponsor"/>
+
+    <TextView
+        android:id="@+id/reviewd_recipient_detail"
+        android:layout_width="290dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="80dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/reviewd_recipient"
+        app:layout_constraintTop_toTopOf="@id/reviewd_content_detail" />
+
+    <Button
+        android:id="@+id/reviewd_chat_with_task_sponsor"
+        android:text="@string/chat_with_sponsor_button"
+        android:background="#EFAA52"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/reviewd_content_detail" />
+
+    <Button
+        android:id="@+id/reviewd_accept_task"
+        android:text="@string/accept_TR"
+        android:background="#EFAA52"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/reviewd_content_detail" />
+
+    <Button
+        android:id="@+id/reviewd_star_task"
+        android:text="@string/star"
+        android:background="#EFAA52"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="270dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/reviewd_content_detail" />
+</androidx.constraintlayout.widget.ConstraintLayout>

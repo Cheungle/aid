@@ -7,37 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.notifications.markActivity">
 
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#EFAA52"
-        android:gravity="center"
-        android:id="@+id/mark_btn"
+        android:theme="@style/AppTheme.AppBarOverlay"
         tools:ignore="MissingConstraints">
-        <Button
-            android:id="@+id/reviewd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="已审核"
-            android:background="#EFAA52"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
 
-        <Button
-            android:id="@+id/review"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="待审核"
-            android:background="#EFAA52"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toStartOf="@id/reviewd"
-            app:layout_constraintTop_toTopOf="parent"/>
-    </LinearLayout>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
     <ListView
         android:id="@+id/show_mark_list"
         android:layout_width="405dp"
@@ -50,6 +33,5 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mark_btn" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

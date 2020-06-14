@@ -141,14 +141,16 @@ public class NotificationsFragment extends Fragment {
         TextView word =  view.findViewById(R.id.user_mark);
         word.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity() , MainActivity.class);
+                Intent i = new Intent(getActivity() , markActivity.class);
+                i.putExtra("id",NotificationsFragment.this.id);
                 startActivity(i);
             }
         });
         TextView icon =   view.findViewById(R.id.arrow_Mark);
         icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity() , MainActivity.class);
+                Intent i = new Intent(getActivity() , markActivity.class);
+                startActivity(i); i.putExtra("id",NotificationsFragment.this.id);
                 startActivity(i);
             }
 

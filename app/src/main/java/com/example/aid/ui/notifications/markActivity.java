@@ -21,9 +21,13 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.aid.R;
 import com.example.aid.data.DAL.DataBaseHelper;
+import com.example.aid.data.DAL.MarkDAL;
 import com.example.aid.data.DAL.UserDAL;
+import com.example.aid.data.model.task;
+import com.example.aid.data.model.taskView;
 import com.example.aid.ui.dashboard.DashboardNewTaskReources;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,114 +41,50 @@ public class markActivity extends AppCompatActivity {
     private String[] time ;
     private String[] content ;
     private Button new_taskresources;
+    private String id;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mine_mark);
-        getTaskData();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        this.id = getIntent().getStringExtra("id");
+        try {
+            markActivity.this.getMarkData();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         SimpleAdapter adapter = new SimpleAdapter(this
                 , taskresources_list
-                , R.layout.fragment_dashboard_task_item
-                , new String[]{"name","place","time","content"}
-                , new int[]{R.id.task_sponsor_detail,R.id.task_location_detail,R.id.task_task_time_detail,R.id.task_content_detail});
+                , R.layout.mark_task
+                , new String[]{"name","type","place","time","content","rece","finish"}
+                , new int[]{R.id.mark_sponsor_detail,R.id.mark_type_text,R.id.mark_location_detail,
+                R.id.mark_task_time_detail,R.id.mark_content_detail,R.id.mark_status_detail,R.id.mark_recipient_detail});
 
         final ListView listView = (ListView) findViewById(R.id.show_mark_list);
         listView.setAdapter(adapter);
-
-        Button reviewd_button = (Button)findViewById(R.id.reviewd);
-        reviewd_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                taskresources_list.clear();
-                Toast.makeText(markActivity.this, "任务", Toast.LENGTH_LONG).show();
-                getTaskData();
-                SimpleAdapter adapter = new SimpleAdapter(markActivity.this
-                        , taskresources_list
-                        , R.layout.fragment_dashboard_task_item
-                        , new String[]{"name","place","time","content"}
-                        , new int[]{R.id.task_sponsor_detail,R.id.task_location_detail,R.id.task_task_time_detail,R.id.task_content_detail});
-
-                ListView listView = (ListView) findViewById(R.id.show_mark_list);
-                listView.setAdapter(adapter);
-            }
-        });
-
-        Button review_button = (Button)findViewById(R.id.review);
-        review_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                taskresources_list.clear();
-
-                Toast.makeText(markActivity.this, "资源", Toast.LENGTH_LONG).show();
-                getResourcesData();
-                SimpleAdapter adapter = new SimpleAdapter(markActivity.this
-                        , taskresources_list
-                        , R.layout.fragment_dashboard_resources_item
-                        , new String[]{"name_1","place_1","time_1","content_1"}
-                        , new int[]{R.id.resources_sponsor_detail, R.id.resources_location_detail, R.id.resources_resources_time_detail, R.id.resources_content_detail});
-
-                ListView listView = (ListView) findViewById(R.id.show_mark_list);
-                listView.setAdapter(adapter);
-            }
-        });
-
     }
 
-    private void getTaskData(){
-        //call DBOpenHelper
-        DataBaseHelper helper = new DataBaseHelper(markActivity.this);
-        SQLiteDatabase db = helper.getWritableDatabase();
-
-        String sql = "select User_Name, Task_Place, Task_Time, Task_Content from user,task where Task_Type=1 and Task_CreatorID_fk = User_ID";
-        Cursor c = db.rawQuery(sql,null);
-        c.moveToFirst();
-        int iColCount = c.getColumnCount();
-        int iNumber = 0;
-        while (iNumber < c.getCount()){
+    private void getMarkData() throws SQLException {
+        MarkDAL markDAL = new MarkDAL(markActivity.this);
+        ArrayList<taskView> t = markDAL.selectMarkByOne(markActivity.this.id);
+        int i = 0;
+        while (i < t.size()){
             Map<String, Object> map = new HashMap<String, Object>();
+            map.put("name",  t.get(i).getTask_CreatorID_fk());
+            if(t.get(i).getTask_Type()==1)
+            {map.put("type","任务");}
+            else{map.put("type","资源");}
+            map.put("place", t.get(i).getTask_Place());
+            map.put("time", t.get(i).getTask_Time());
+            map.put("content", t.get(i).getTask_Content());
+            map.put("rece", t.get(i).getRCT_ReceiverID_fk());
+            map.put("finish", t.get(i).getCT_CompletedTime());
 
-            map.put("name",  c.getString(c.getColumnIndex("User_Name")));
-            //map.put("sponsor_time", c.getString(c.getColumnIndex("")));
-            map.put("place", c.getString(c.getColumnIndex("Task_Place")));
-            map.put("time", c.getString(c.getColumnIndex("Task_Time")));
-            map.put("content", c.getString(c.getColumnIndex("Task_Content")));
-
-            c.moveToNext();
             taskresources_list.add(map);
-            iNumber++;
-            System.out.println(taskresources_list);
+            i++;
+          //  System.out.println(taskresources_list);
         }
-        c.close();
-        db.close();
-    }
 
-    private void getResourcesData(){
-        //call DBOpenHelper
-        DataBaseHelper helper = new DataBaseHelper(markActivity.this);
-        SQLiteDatabase db = helper.getWritableDatabase();
-
-        String sql = "select User_Name, Task_Place, Task_Time, Task_Content from user,task where Task_Type=2 and Task_CreatorID_fk = User_ID";
-        Cursor c = db.rawQuery(sql,null);
-        c.moveToFirst();
-        int iColCount = c.getColumnCount();
-        int iNumber = 0;
-        while (iNumber < c.getCount()){
-            Map<String, Object> map = new HashMap<String, Object>();
-
-            map.put("name_1",  c.getString(c.getColumnIndex("User_Name")));
-            //map.put("sponsor_time", c.getString(c.getColumnIndex("")));
-            map.put("place_1", c.getString(c.getColumnIndex("Task_Place")));
-            map.put("time_1", c.getString(c.getColumnIndex("Task_Time")));
-            map.put("content_1", c.getString(c.getColumnIndex("Task_Content")));
-
-            c.moveToNext();
-            taskresources_list.add(map);
-            iNumber++;
-            System.out.println(taskresources_list);
-        }
-        c.close();
-        db.close();
     }
 }

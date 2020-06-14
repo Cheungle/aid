@@ -77,6 +77,11 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
+            android:name=".ui.notifications.markActivity"
+            android:label="@string/showitem_mark"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
             android:name=".ui.login.ForgetPwdActivity"
             android:label="忘记密码"
             android:theme="@style/AppTheme.NoActionBar" >

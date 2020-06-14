@@ -13,7 +13,8 @@
         android:background="#EFAA52"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="5dp">
 
 
         <Button
@@ -21,6 +22,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="#EFAA52"
             android:text="人员"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -34,6 +36,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="#EFAA52"
             android:text="药物"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -48,6 +51,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="#EFAA52"
             android:text="其他"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -55,6 +59,19 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/forum_add_bt"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/forum_add"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            />
+
+
     </LinearLayout>
 
     <ListView

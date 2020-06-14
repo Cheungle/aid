@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments)
             {
                 Log.v("change","change");
-                if(destination.getId() == R.id.navigation_notifications){
+                if(destination.getId() == R.id.navigation_notifications ){
                     if(arguments==null)arguments = new Bundle();
                     arguments.putString("id", MainActivity.this.id);
                     NavArgument nav = new NavArgument.Builder().setDefaultValue(MainActivity.this.id).build();
@@ -61,8 +61,36 @@ public class MainActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
+        //把当前用户id传给论坛页
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener()
+        {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments)
+            {
+                Log.v("change","change");
+                if(destination.getId() == R.id.navigation_forum){
+                    if(arguments==null)arguments = new Bundle();
+                    arguments.putString("id", MainActivity.this.id);
+                    NavArgument nav = new NavArgument.Builder().setDefaultValue(MainActivity.this.id).build();
+                    destination.addArgument("id",nav);
+                }
+            }
+        });
+        //把当前用户id传给消息页
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener()
+        {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments)
+            {
+                Log.v("change","change");
+                if(destination.getId() == R.id.navigation_message){
+                    if(arguments==null)arguments = new Bundle();
+                    arguments.putString("id", MainActivity.this.id);
+                    NavArgument nav = new NavArgument.Builder().setDefaultValue(MainActivity.this.id).build();
+                    destination.addArgument("id",nav);
+                }
+            }
+        });
 
     }
-
-
-}
+    }

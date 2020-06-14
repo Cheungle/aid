@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavArgument;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.example.aid.R;
 import com.example.aid.data.DAL.DataBaseHelper;
@@ -35,6 +39,8 @@ public class ForumFragment extends Fragment {
     //ForumActivity forumActivity=new ForumActivity();
     private DataBaseHelper dbhelper;
     private SQLiteDatabase db;
+    //当前登录用户
+    private String user_id;
     String[] str_titles=new String[10];
 
 
@@ -46,6 +52,13 @@ public class ForumFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         final View forum_view = inflater.inflate(R.layout.fragment_forum, container, false);
+
+        //获取用户id
+        NavController nav = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
+        Map<String, NavArgument> id = nav.getCurrentDestination().getArguments();
+        NavArgument argument = id.get("id");
+        String res = argument.getDefaultValue().toString();
+        this.user_id = res;
 
         /* forum_titles = new String[] {"英国民众上街抗议", "疫情催涨日本虐童案", "高校复学2.6万学生做心理测试"};
         //forum_titles = themeDAL.getAllTitles();
@@ -187,6 +200,7 @@ public class ForumFragment extends Fragment {
 
         final ListView listView = (ListView) getActivity().findViewById(R.id.forum_lv);
         listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {//设置监听器
             @SuppressLint("ResourceType")
@@ -195,12 +209,30 @@ public class ForumFragment extends Fragment {
 
                     Bundle bundle = new Bundle();
                     bundle.putInt("id",position);
+                    bundle.putString("user_id",user_id);
                     Intent intent= new Intent(getActivity(),ForumContentActivity.class);
                     intent.putExtras(bundle);
                     startActivity(intent);
 
             }
         });
+
+        Button add_button = (Button)getActivity().findViewById(R.id.forum_add_bt);
+        if( user_id.length() == 11 ) {
+            add_button.setVisibility(add_button.GONE);
+        }
+        add_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("user_id",user_id);
+                Intent intent= new Intent(getActivity(),ForumAddActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+            }
+        });
+
 
         Button medicine_button = (Button)getActivity().findViewById(R.id.forum_medicine_bt);
         medicine_button.setOnClickListener(new View.OnClickListener() {
@@ -296,7 +328,7 @@ public class ForumFragment extends Fragment {
         while (cursor.moveToNext()) {
             str_titles[i]=cursor.getString(0);
             i++;
-            //Log.i("TAG","cursor.getString(0)="+cursor.getString(0));
+            Log.i("TAG","cursor.getString(0)="+cursor.getString(0));
         }
         cursor.close();
         forum_titles=str_titles;

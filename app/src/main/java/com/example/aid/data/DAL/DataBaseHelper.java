@@ -13,7 +13,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE `identity` (" +
+        db.execSQL("CREATE TABLE IF NOT EXISTS `identity` (" +
                 "  `Identity_ID` varchar(18) PRIMARY KEY NOT NULL," +
                 "  `Identity_Name` varchar(15) NOT NULL" +
                 ")");

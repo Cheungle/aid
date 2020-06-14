@@ -91,6 +91,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener()
+        {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments)
+            {
+                if(destination.getId() == R.id.navigation_home){
+                    if(arguments==null)arguments = new Bundle();
+                    arguments.putString("id", MainActivity.this.id);
+                    NavArgument nav = new NavArgument.Builder().setDefaultValue(MainActivity.this.id).build();
+                    destination.addArgument("id",nav);
+                }
+            }
+        });
 
     }
     }

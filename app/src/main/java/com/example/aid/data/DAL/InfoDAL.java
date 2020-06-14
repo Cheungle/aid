@@ -58,4 +58,10 @@ public class InfoDAL  {
         //Log.v("information", String.valueOf(cursor));
         return cursor;
     }
+    public Cursor deleteinfo(String title) {
+        SQLiteDatabase db6=dbhelper.getReadableDatabase();
+        String sql7="delete from information where Info_Title='"+title+"'";
+        Cursor cursor6 = db6.rawQuery(sql7,null);
+        return cursor6;
+    }
 }

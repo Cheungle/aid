@@ -224,13 +224,22 @@
                         android:gravity="right"
                         />
                 </LinearLayout>
-
+                <TextView
+                    android:id="@+id/tv_zhexiantitle"
+                    android:layout_below="@+id/xiangxia1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="全国一周患者数量变化"
+                    android:textStyle="bold"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:background="?android:attr/selectableItemBackground"/>
                 <com.example.aid.ui.data.LineView
                     android:id="@+id/customView1"
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
                     android:background="#000000"
-                    android:layout_below="@+id/xiangxia1"/>
+                    android:layout_below="@+id/tv_zhexiantitle"/>
 
 
                 <!--柱状图1-->
@@ -300,7 +309,7 @@
                     android:layout_height="250dp"
                     android:background="@null"
                     android:orientation="vertical"
-                    android:layout_marginBottom="50dp">
+                    >
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -388,132 +397,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/tu2"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="50dp">
-                    <!--<LinearLayout
-                        android:layout_below="@+id/tu2"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_weight="1"
+                        android:id="@+id/tv_show_percentage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:background="?android:attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="死亡治愈百分比展示"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:text="半透明圆半径"
-                            android:padding="10dp"
-                            android:gravity="center"/>
-
-                        <SeekBar
-                            android:id="@+id/sb_alpha_circle_radius"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-
-                    -<View
-                        android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:background="#F5F6F9"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"/>
--->
-
-                    <!--<LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:text="空心圆半径"
-                            android:padding="10dp"
-                            android:gravity="center"/>
-
-                        <SeekBar
-                            android:id="@+id/sb_hole_circle_radius"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>-->
-
-                    <!--<View
-                        android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:background="#F5F6F9"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:text="半透明圆透明度"
-                            android:padding="10dp"
-                            android:gravity="center"/>
-
-                        <SeekBar
-                            android:id="@+id/sb_alpha_circle_alpha"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>-->
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:background="#F5F6F9"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center">
-
-                        <TextView
-                            android:id="@+id/tv_show_percentage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="死亡治愈百分比展示"
-                            android:textStyle="bold"
-                            android:padding="10dp"
-                            android:gravity="center"
-                            android:background="?android:attr/selectableItemBackground"/>
-
-                        <!-- <TextView
-                             android:id="@+id/tv_block_up"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:text="含重点数据"
-                             android:textStyle="bold"
-                             android:padding="10dp"
-                             android:gravity="center"
-                             android:background="?android:attr/selectableItemBackground"/>
-
-                         <TextView
-                             android:id="@+id/tv_default_data"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:text="普通数据"
-                             android:textStyle="bold"
-                             android:padding="10dp"
-                             android:gravity="center"
-                             android:background="?android:attr/selectableItemBackground"/>
-
-                         <TextView
-                             android:id="@+id/tv_center_text"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:text="中心文字"
-                             android:textStyle="bold"
-                             android:padding="10dp"
-                             android:gravity="center"
-                             android:background="?android:attr/selectableItemBackground"/>
-
- -->
-                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1px"

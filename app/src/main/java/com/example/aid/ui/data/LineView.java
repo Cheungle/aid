@@ -31,7 +31,7 @@ public class LineView extends View {
 
     private static final String TAG = "LineView";
     //    private int[] yLables = {5, 8, 11, 14, 17, 20}; //固定y轴数字
-    private int[] yLables = {1, 6, 11, 16, 21, 26}; //固定y轴数字
+    private int[] yLables= {5, 8, 11, 14, 17, 20} ; //固定y轴数字
     private Context mContext;
     private List<String> xValues = new ArrayList<>();
     private List<Integer> yValues = new ArrayList<>();
@@ -49,9 +49,9 @@ public class LineView extends View {
     private int xScaleHeight = dip2px(6); // x轴刻度线高度
     private int xyTextSize = sp2px(10); //xy轴文字大小
     private int textToXYAxisGap = dip2px(10); // xy轴的文字距xy线的距离
-    private int lableCountY = yLables.length; // Y轴刻度个数
+    private int lableCountY = 6; // Y轴刻度个数
     private int leftRightExtra = intervalX / 3; //x轴左右向外延伸的长度
-    private int  minValueY = 1; // y轴最小值
+    private int  minValueY = 0; // y轴最小值
     private int  maxValueY = 26; // y轴最大值
     private int bigCircleR = 7; //折线图中的圆圈
     private int smallCircleR = 5; //折线图中为了避免折线穿透的圆圈
@@ -166,7 +166,7 @@ public class LineView extends View {
         Path path1 = new Path();
         DashPathEffect dash = new DashPathEffect(new float[]{8, 10, 8, 10}, 0);
         dashPaint.setPathEffect(dash);
-        for (int i = 0; i < lableCountY; i++) {
+        for (int i = 0; i < 6; i++) {
             path1.moveTo(originX, mHeight - paddingBottom - leftRightExtra - i * intervalY);
             path1.lineTo(mWidth - paddingRight, mHeight - paddingBottom - leftRightExtra - i * intervalY);
         }
@@ -181,16 +181,24 @@ public class LineView extends View {
      */
     private void drawY(Canvas canvas) {
 //        canvas.save();
+        setYValues(yValues);
+        int a=maxValueY/100+1;
+        int b =a*100;
+        int c=minValueY;
+        for(int t=0;t<=5;t++) {
+            yLables[t]=c;
+            c=c+b/5;
+        }
         Path path = new Path();
         path.moveTo(originX, originY);
 
-        for (int i = 0; i < lableCountY; i++) {
+        for (int i = 0; i < 6; i++) {
             // y轴线
             path.lineTo(originX, mHeight - paddingBottom - leftRightExtra - i * intervalY);
         }
 
         //y轴最后一个刻度的位置
-        int lastPointY = mHeight - paddingBottom - leftRightExtra - (lableCountY - 1) * intervalY;
+        int lastPointY = mHeight - paddingBottom - leftRightExtra - (6 - 1) * intervalY;
         // 箭头位置，y轴最后一个点后，需要额外加上一小段，就是一个半leftRightExtra的长度
         int lastY = lastPointY - leftRightExtra - leftRightExtra / 2;
         // y轴箭头
@@ -201,7 +209,7 @@ public class LineView extends View {
         canvas.drawPath(path, paintWhite);
 
         // y轴文字
-        for (int i = 0; i < yLables.length; i++) {
+        for (int i = 0; i < 6; i++) {
             canvas.drawText(String.valueOf(yLables[i]), originX - dip2px(25),
                     mHeight - paddingBottom - leftRightExtra - i * intervalY + getTextHeight(paintText, "00.00") / 2, paintText);
         }
@@ -221,7 +229,9 @@ public class LineView extends View {
     private void drawLine(Canvas canvas) {
 //        canvas.save();
         // 画折线
-        int aver = (lableCountY - 1) * intervalY / (maxValueY - minValueY); //y轴最小单位的距离
+        setYValues(yValues);
+        Log.v("max", maxValueY+" "+minValueY);
+        int aver = (6 - 1) * intervalY / (maxValueY - minValueY); //y轴最小单位的距离
         Path path = new Path();
         //先移动到第一个点的位置
         path.moveTo(firstPointX, mHeight - paddingBottom - leftRightExtra - yValues.get(0) * aver + minValueY * aver);

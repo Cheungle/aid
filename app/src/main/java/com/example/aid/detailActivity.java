@@ -24,6 +24,7 @@ public class detailActivity extends AppCompatActivity {
         String message=bundle.getString("message");
         String title=bundle.getString("title");
         String source=bundle.getString("source");
+        String date=bundle.getString("date");
         ImageView Iv=(ImageView) findViewById(R.id.Iv);
         Iv.setImageResource(id);
         ImageView Iv2=(ImageView) findViewById(R.id.Iv2);
@@ -34,6 +35,8 @@ public class detailActivity extends AppCompatActivity {
         name.setText(source);
         TextView tv_title=(TextView) findViewById(R.id.tv_title);
         tv_title.setText(title);
+        TextView tv_date=(TextView) findViewById(R.id.cardDate);
+        tv_date.setText(date);
 
 
 

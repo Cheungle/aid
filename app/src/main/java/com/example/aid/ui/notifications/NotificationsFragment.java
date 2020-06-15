@@ -124,14 +124,16 @@ public class NotificationsFragment extends Fragment {
         TextView word =   view.findViewById(R.id.user_publish);
         word.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity() , MainActivity.class);
+                Intent i = new Intent(getActivity() , publishActivity.class);
+                i.putExtra("id",NotificationsFragment.this.id);
                 startActivity(i);
             }
         });
         TextView icon =   view.findViewById(R.id.arrow_Publish);
         icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity() , MainActivity.class);
+                Intent i = new Intent(getActivity() , publishActivity.class);
+                i.putExtra("id",NotificationsFragment.this.id);
                 startActivity(i);
             }
 
@@ -160,15 +162,17 @@ public class NotificationsFragment extends Fragment {
         TextView word =  view.findViewById(R.id.user_set);
         word.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity() , MainActivity.class);
+                Intent i = new Intent(getActivity() , receiveActivity.class);
+                i.putExtra("id",NotificationsFragment.this.id);
                 startActivity(i);
             }
         });
         TextView icon =   view.findViewById(R.id.arrow_Set);
         icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity() , MainActivity.class);
-                startActivity(i);
+                Intent i = new Intent(getActivity() , receiveActivity.class);
+                i.putExtra("id",NotificationsFragment.this.id);
+                startActivity(i);startActivity(i);
             }
 
         });
@@ -227,14 +231,18 @@ public class NotificationsFragment extends Fragment {
         TextView word =   view.findViewById(R.id.m_task_text);
         word.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity(), MainActivity.class);
+                Intent i = new Intent(getActivity(), managerMineActivity.class);
+                i.putExtra("id",NotificationsFragment.this.id);
+                i.putExtra("type","task");
                 startActivity(i);
             }
         });
         TextView icon =   view.findViewById(R.id.arrow_taskM);
         icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity(), MainActivity.class);
+                Intent i = new Intent(getActivity(), managerMineActivity.class);
+                i.putExtra("id",NotificationsFragment.this.id);
+                i.putExtra("type","task");
                 startActivity(i);
             }
 
@@ -245,14 +253,18 @@ public class NotificationsFragment extends Fragment {
         TextView word =   view.findViewById(R.id.m_comment);
         word.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity() , MainActivity.class);
+                Intent i = new Intent(getActivity(), managerMineActivity.class);
+                i.putExtra("id",NotificationsFragment.this.id);
+                i.putExtra("type","comment");
                 startActivity(i);
             }
         });
         TextView icon =   view.findViewById(R.id.arrow_commentM);
         icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity() , MainActivity.class);
+                Intent i = new Intent(getActivity(), managerMineActivity.class);
+                i.putExtra("id",NotificationsFragment.this.id);
+                i.putExtra("type","comment");
                 startActivity(i);
             }
 
@@ -262,14 +274,16 @@ public class NotificationsFragment extends Fragment {
         TextView word =  view.findViewById(R.id.m_theme_text);
         word.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity() , MainActivity.class);
+                Intent i = new Intent(getActivity() , themeActivity.class);
+                i.putExtra("id",NotificationsFragment.this.id);
                 startActivity(i);
             }
         });
         TextView icon =   view.findViewById(R.id.arrow_themeM);
         icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity() , MainActivity.class);
+                Intent i = new Intent(getActivity() , themeActivity.class);
+                i.putExtra("id",NotificationsFragment.this.id);
                 startActivity(i);
             }
 

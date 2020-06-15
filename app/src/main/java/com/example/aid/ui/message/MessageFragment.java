@@ -55,12 +55,12 @@ public class MessageFragment extends Fragment {
     private DataBaseHelper dbhelper;
     private SQLiteDatabase db;
     private List<Map<String,Object>> mw_list=new ArrayList<Map<String, Object>>();
-    private int[] user_images={R.drawable.left_head};//{R.mipmap.ic_forum, R.mipmap.ic_message};
+    private int[] user_images;//={R.drawable.left_head};//{R.mipmap.ic_forum, R.mipmap.ic_message};
     private String[] user_names;//={"龙宝","阿轩"};
     private String[] user_last_messages=new String[10];//={"hhhhh"};//{"螺蛳粉", "猫咪图片"};
     private String[] message_contents;
     private String user_id;
-    String[] str_names=new String[10];
+    String[] str_names;//=new String[10];
     String[] str_contents=new String[10];
     String str_last_message;
 
@@ -88,10 +88,11 @@ public class MessageFragment extends Fragment {
         for(int k=0;k<user_names.length;k++) {
             str_last_message=getLastMessageByUserIDs(user_id,user_names[k]);
             user_last_messages[k]=str_last_message;
+            user_images[k]=R.drawable.left_head;
         }
 
 
-        for(int j=0; j<user_images.length; j++){
+        for(int j=0; j<user_names.length; j++){
             Map<String,Object> map=new HashMap<String, Object>();
             map.put("image",user_images[j]);
             map.put("name",user_names[j]);
@@ -102,8 +103,8 @@ public class MessageFragment extends Fragment {
         SimpleAdapter adapter = new SimpleAdapter(getActivity()
                 , mw_list
                 , R.layout.fragment_mwlv_item
-                , new String[]{"image", "name", "last_message"}
-                , new int[]{R.id.user_image, R.id.user_name, R.id.user_last_message});
+                , new String[]{"image","name", "last_message"}
+                , new int[]{R.id.user_image,R.id.user_name, R.id.user_last_message});
         adapter.notifyDataSetChanged();
         final ListView listView = (ListView) mw_view.findViewById(R.id.mw_lv);
         listView.setAdapter(adapter);
@@ -181,6 +182,9 @@ public class MessageFragment extends Fragment {
         String sql = "select user.User_Name from user,messagewindow where (user.User_ID=messagewindow.MW_UserID2_fk and messagewindow.MW_UserID1_fk='"+User_ID+"') " +
                 "or (user.User_ID=messagewindow.MW_UserID1_fk and messagewindow.MW_UserID2_fk='"+User_ID+"')";
         Cursor cursor = db.rawQuery(sql,null);
+        int n = cursor.getCount();
+        str_names=new String[n];
+        user_images=new int[n];
         int i=0;
         //cursor.moveToFirst();
         while (cursor.moveToNext()) {

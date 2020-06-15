@@ -6,7 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/mark_task_ID"/>
     <TextView
         android:id="@+id/mark_sponsor"
         android:layout_width="60dp"
@@ -158,7 +161,7 @@
     <Button
         android:id="@+id/mark_chat_with_task_sponsor"
         android:text="@string/chat_with_sponsor_button"
-        android:background="#EFAA52"
+        android:background="@drawable/btn_circle"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginStart="50dp"
@@ -169,7 +172,7 @@
     <Button
         android:id="@+id/mark_accept_task"
         android:text="@string/accept_TR"
-        android:background="#EFAA52"
+        android:background="@drawable/btn_circle"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginStart="160dp"

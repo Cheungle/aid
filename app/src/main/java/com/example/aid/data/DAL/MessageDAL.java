@@ -28,8 +28,12 @@ public class MessageDAL {
 
     public List<Map<String, Object>> getMessage_Contents(String User1_ID,String User2_Name) {
         SQLiteDatabase db=dbhelper.getReadableDatabase();
-        String sql = "select message.Message_Content,message.Message_UserID_fk from message,user where (message.Message_UserID_fk='"+User1_ID+"')" +
-                " or (message.Message_UserID_fk=user.User_ID and user.User_Name='"+User2_Name+"') ";
+        //String sql = "select message.Message_Content,message.Message_UserID_fk from message,user where ((message.Message_UserID_fk='"+User1_ID+"')" +
+                //" or (message.Message_UserID_fk=user.User_ID and user.User_Name='"+User2_Name+"')) ";
+        String sql = "select message.Message_Content,message.Message_UserID_fk from message,messagewindow,user where (message.Message_WindowID_fk=messagewindow.MW_ID " +
+                " and messagewindow.MW_UserID1_fk ='"+User1_ID+"' and (messagewindow.MW_UserID2_fk = user.User_ID and user.User_Name='"+User2_Name+"')) " +
+                " or (message.Message_WindowID_fk=messagewindow.MW_ID and messagewindow.MW_UserID2_fk ='"+User1_ID+"' and " +
+                "(messagewindow.MW_UserID1_fk = user.User_ID and user.User_Name='"+User2_Name+"'))";
         Cursor cursor = db.rawQuery(sql,null);
         //cursor.moveToFirst();
         while (cursor.moveToNext()) {

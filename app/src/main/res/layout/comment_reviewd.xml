@@ -7,11 +7,11 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/reviewd_task_ID"
+        android:id="@+id/reviewd_comment_ID"
         android:layout_width="0dp"
         android:layout_height="0dp" />
     <TextView
-        android:id="@+id/reviewd_sponsor"
+        android:id="@+id/reviewd_comment_sponsor"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
@@ -22,60 +22,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
-        android:id="@+id/reviewd_sponsor_detail"
+        android:id="@+id/reviewd_comment_sponsor_detail"
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="0dp"
         android:background="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@id/reviewd_sponsor"
+        app:layout_constraintStart_toStartOf="@id/reviewd_comment_sponsor"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/reviewd_type"
+        android:id="@+id/reviewd_comment_theme"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:background="#FFFFFF"
-        android:text="类型"
+        android:text="主题"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
-        android:id="@+id/reviewd_type_text"
+        android:id="@+id/reviewd_comment_theme_text"
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
         android:background="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@id/reviewd_type"
+        app:layout_constraintStart_toStartOf="@id/reviewd_comment_theme"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
-        android:id="@+id/reviewd_location"
+        android:id="@+id/reviewd_comment_last"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="20dp"
         android:background="#FFFFFF"
-        android:text="@string/TR_location"
+        android:text="上一级"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/reviewd_type"/>
+        app:layout_constraintTop_toTopOf="@id/reviewd_comment_theme"/>
 
     <TextView
-        android:id="@+id/reviewd_location_detail"
+        android:id="@+id/reviewd_comment_last_detail"
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
         android:background="#FFFFFF"
         android:layout_marginTop="40dp"
-        app:layout_constraintStart_toStartOf="@id/reviewd_location"
-        app:layout_constraintTop_toTopOf="@id/reviewd_sponsor_detail" />
+        app:layout_constraintStart_toStartOf="@id/reviewd_comment_last"
+        app:layout_constraintTop_toTopOf="@id/reviewd_comment_sponsor_detail" />
 
     <TextView
-        android:id="@+id/reviewd_task_time"
+        android:id="@+id/reviewd_comment_time"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
@@ -83,20 +83,20 @@
         android:background="#FFFFFF"
         android:text="时间"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/reviewd_sponsor"/>
+        app:layout_constraintTop_toTopOf="@id/reviewd_comment_sponsor"/>
 
     <TextView
-        android:id="@+id/reviewd_task_time_detail"
+        android:id="@+id/reviewd_comment_time_detail"
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
         android:background="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@id/reviewd_task_time"
-        app:layout_constraintTop_toTopOf="@id/reviewd_location_detail" />
+        app:layout_constraintStart_toStartOf="@id/reviewd_comment_time"
+        app:layout_constraintTop_toTopOf="@id/reviewd_comment_last_detail" />
 
     <TextView
-        android:id="@+id/reviewd_content"
+        android:id="@+id/reviewd_comment_content"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="27dp"
@@ -104,20 +104,20 @@
         android:background="#FFFFFF"
         android:text="内容"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/reviewd_sponsor"/>
+        app:layout_constraintTop_toTopOf="@id/reviewd_comment_sponsor"/>
 
     <TextView
-        android:id="@+id/reviewd_content_detail"
+        android:id="@+id/reviewd_comment_content_detail"
         android:layout_width="290dp"
         android:layout_height="60dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
         android:background="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@id/reviewd_content"
-        app:layout_constraintTop_toTopOf="@id/reviewd_task_time_detail" />
+        app:layout_constraintStart_toStartOf="@id/reviewd_comment_content"
+        app:layout_constraintTop_toTopOf="@id/reviewd_comment_time_detail" />
 
     <TextView
-        android:id="@+id/reviewd_status"
+        android:id="@+id/reviewd_comment_status"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginStart="27dp"
@@ -125,15 +125,15 @@
         android:background="#FFFFFF"
         android:text="审核结果"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/reviewd_sponsor"/>
+        app:layout_constraintTop_toTopOf="@id/reviewd_comment_sponsor"/>
     <TextView
-        android:id="@+id/reviewd_status_detail"
+        android:id="@+id/reviewd_comment_status_detail"
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="60dp"
         android:background="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@id/reviewd_status"
-        app:layout_constraintTop_toTopOf="@id/reviewd_content_detail" />
+        app:layout_constraintStart_toStartOf="@id/reviewd_comment_status"
+        app:layout_constraintTop_toTopOf="@id/reviewd_comment_content_detail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,10 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.aid.data.model.theme;
+
+import java.util.ArrayList;
+
 public class ThemeDAL {
     private DataBaseHelper dbhelper;
     private String[] forum_titles;
@@ -59,5 +63,20 @@ public class ThemeDAL {
         values.put("Theme_ManagerID_fk", Theme_ManagerID_fk);
 
         db.insert("theme", null, values);
+    }
+    public ArrayList<theme> selectThemeByOne(String id){
+        SQLiteDatabase db=dbhelper.getReadableDatabase();
+        String sql="select * from theme where Theme_ManagerID_fk='"+ id +"'";
+        Cursor cursor = db.rawQuery(sql,null);
+        ArrayList<theme> t = new ArrayList<theme>();
+        while (cursor.moveToNext()){
+            //Log.e("task",cursor.getString(cursor.getColumnIndex("Task_Place")));
+            theme now = new theme(cursor.getInt(cursor.getColumnIndex("Theme_ID")),
+                    cursor.getString(cursor.getColumnIndex("Theme_Content")),cursor.getString(cursor.getColumnIndex("Theme_Time")),
+                    cursor.getString(cursor.getColumnIndex("Theme_ManagerID_fk")));
+            t.add(now);
+        }
+        cursor.close();
+        return t;
     }
 }

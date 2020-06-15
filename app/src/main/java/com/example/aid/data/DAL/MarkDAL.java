@@ -19,28 +19,24 @@ public class MarkDAL {
     }
     public ArrayList<taskView> selectMarkByOne(String id) throws SQLException {
         SQLiteDatabase db=dbhelper.getReadableDatabase();
-        String sql = "select * from mark,task,user where Mark_UserID_fk='" + id + "' and Mark_TaskID_fk=Task_ID and Task_CreatorID_fk=User_ID";
+        String sql = "select Mark_TaskID_fk,Task_Content,Task_Place,Task_Time,Task_Type,MarkTask.User_Name as PubPerson,Markinfo.User_Name as RecPerson,CT_CompletedTime " +
+                "from (select Mark_UserID_fk,Mark_TaskID_fk,Task_Content,Task_Place,Task_Time,Task_Type,User_Name from mark,task,user where Mark_TaskID_fk=Task_ID and Task_CreatorID_fk=User_ID) as MarkTask " +
+                "left join reviewedtask " +
+                "on Mark_TaskID_fk=RVT_ID_fk " +
+                "left join (select User_Name,RCT_ID_fk from receivedtask,user where User_ID=RCT_ReceiverID_fk) as Markinfo " +
+                "on Mark_TaskID_fk=RCT_ID_fk " +
+                "left join completedtask " +
+                "on Mark_TaskID_fk=CT_ID_fk " +
+                "where Mark_UserID_fk='"+ id +"'";
         Cursor cursor = db.rawQuery(sql,null);
         ArrayList<taskView> t = new ArrayList<taskView>();
         while (cursor.moveToNext()){
-            taskView now = new taskView(cursor.getInt(cursor.getColumnIndex("Task_ID")),
-                    cursor.getString(cursor.getColumnIndex("User_Name")),cursor.getString(cursor.getColumnIndex("Task_Content")),
-                    cursor.getString(cursor.getColumnIndex("Task_Time")),cursor.getInt(cursor.getColumnIndex("Task_Type")),cursor.getString(cursor.getColumnIndex("Task_Place")));
+            //Log.v("t",cursor.getString(cursor.getColumnIndex("PubPerson")));
+            taskView now = new taskView(cursor.getInt(cursor.getColumnIndex("Mark_TaskID_fk")),
+                    cursor.getString(cursor.getColumnIndex("PubPerson")),cursor.getString(cursor.getColumnIndex("Task_Content")),
+                    cursor.getString(cursor.getColumnIndex("Task_Time")),cursor.getInt(cursor.getColumnIndex("Task_Type")),
+                    cursor.getString(cursor.getColumnIndex("Task_Place")),cursor.getString(cursor.getColumnIndex("RecPerson")),cursor.getString(cursor.getColumnIndex("CT_CompletedTime")));
             t.add(now);
-        }
-        sql = "select * from mark,receivedtask,user where Mark_UserID_fk='" + id + "' and RCT_ID_fk=Mark_TaskID_fk and RCT_ReceiverID_fk=User_ID";
-        cursor = db.rawQuery(sql,null);
-        int i = 0;
-        while(cursor.moveToNext()){
-            t.get(i).setRCT_ReceiverID_fk(cursor.getString(cursor.getColumnIndex("RCT_ReceiverID_fk")));
-            i++;
-        }
-        sql="select * from mark,completedtask where Mark_UserID_fk='" + id + "' and CT_ID_fk = Mark_TaskID_fk";
-        cursor = db.rawQuery(sql,null);
-        int j = 0;
-        while(cursor.moveToNext()){
-            t.get(j).setCT_CompletedTime(cursor.getString(cursor.getColumnIndex("CT_CompletedTime")));
-            j++;
         }
         cursor.close();
        // System.out.println(t);

@@ -41,7 +41,7 @@ public class ForumFragment extends Fragment {
     private SQLiteDatabase db;
     //当前登录用户
     private String user_id;
-    String[] str_titles=new String[10];
+    String[] str_titles;
 
 
     public ForumFragment() {
@@ -323,6 +323,8 @@ public class ForumFragment extends Fragment {
 
         String sql = "select Theme_Content from theme";
         Cursor cursor = db.rawQuery(sql,null);
+        int n = cursor.getCount();
+        str_titles = new String[n];
         int i=0;
         //cursor.moveToFirst();
         while (cursor.moveToNext()) {

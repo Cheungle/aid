@@ -190,7 +190,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO `completedtask` VALUES (2,'2020-05-08');");
         db.execSQL("INSERT INTO `messagewindow` VALUES (1,'15186861111','15186862222','2020-05-01',2);");
         db.execSQL("INSERT INTO `comment` VALUES (1,'今天确诊人数下降了','2020-05-03','15186861111',2,1,NULL),(2,'真的！','2020-05-03','15186862222',2,1,1);");
-        db.execSQL("INSERT INTO `reviewedcomment` VALUES (1,'15186861111M','2020-05-03',1);");
+        db.execSQL("INSERT INTO `reviewedcomment` VALUES (1,'15186861111M','2020-05-03',1),(2,'15186861111M','2020-05-05',1);");
         db.execSQL("INSERT INTO `message` VALUES (1,'15186861111','2020-05-02',1,1,1,'请问防护服还有吗'),(2,'15186862222','2020-05-02',1,1,1,'您好，还有的');");
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){

@@ -85,6 +85,26 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
+            android:name=".ui.notifications.publishActivity"
+            android:label="@string/showitem_publish"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ui.notifications.receiveActivity"
+            android:label="@string/showitem_set"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ui.notifications.managerMineActivity"
+            android:label="  管理任务"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ui.notifications.themeActivity"
+            android:label="  管理主题"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
             android:name=".ui.login.ForgetPwdActivity"
             android:label="忘记密码"
             android:theme="@style/AppTheme.NoActionBar" >

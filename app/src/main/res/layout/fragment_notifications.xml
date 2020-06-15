@@ -204,7 +204,7 @@
                 android:clickable="true"
                 android:drawableStart="@drawable/ic_vertical_align_top_black_24dp"
                 android:focusable="true"
-                android:paddingTop="19dp"
+                android:paddingTop="14dp"
                 android:paddingBottom="19dp"
                 android:text="@string/showitem_publish"
                 android:textColor="@android:color/black"
@@ -243,7 +243,7 @@
                 android:layout_weight="8"
                 android:clickable="true"
                 android:focusable="true"
-                android:drawableStart="@drawable/ic_settings_black_24dp"
+                android:drawableStart="@drawable/ic_assignment_turned_in_black_24dp"
                 android:text="@string/showitem_set"
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />

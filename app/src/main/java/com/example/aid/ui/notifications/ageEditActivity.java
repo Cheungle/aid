@@ -18,8 +18,8 @@ public class ageEditActivity extends AppCompatActivity {
     private String age;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_age_edit);
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_age_edit);
         Toolbar toolbar = findViewById(R.id.toolbar);
         this.id = getIntent().getStringExtra("id");
         this.age = getIntent().getStringExtra("age");

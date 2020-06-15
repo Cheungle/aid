@@ -1,16 +1,20 @@
 package com.example.aid.data.DAL;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
+
 public class MWDAL {
     private DataBaseHelper dbhelper;
     private String[] user_names;
     private String last_message;
     String[] str_names=new String[10];
+    int MW_ID;
 
     public MWDAL(Context context) {
         dbhelper = new DataBaseHelper(context);
@@ -32,6 +36,28 @@ public class MWDAL {
         cursor.close();
         user_names=str_names;
         return user_names;
+    }
+
+    public void insertMessageWindow(String User1ID,String User2ID,int TaskID) {
+        SQLiteDatabase db=dbhelper.getReadableDatabase();
+        String sql="select MAX(MW_ID) from message";
+        Cursor cursor = db.rawQuery(sql,null);
+        while (cursor.moveToNext()){
+            MW_ID=cursor.getInt(0);
+            MW_ID++;
+        }
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        String date=sdf.format(new java.util.Date());
+        ContentValues values = new ContentValues();
+        values.put("MW_ID", MW_ID);
+        values.put("MW_UserID1_fk", User1ID);
+        values.put("MW_UserID2_fk", User2ID);
+        values.put("MW_Time", date);
+        values.put("MW_TaskID_fk", TaskID);
+
+        //values.put("Comment_PreCmmtID_fk", 0);
+        db.insert("messagewindow", null, values);
+
     }
 
 

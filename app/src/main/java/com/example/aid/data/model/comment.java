@@ -19,7 +19,15 @@ public class comment {
         this.Comment_State = state;
         this.Comment_PreCmmtID_fk = precmmt_id;
     }
-
+    public comment(int id, String content, String time, String source,
+                   int theme_id,  int precmmt_id ){
+        this.Comment_ID = id;
+        this.Comment_Content = content;
+        this.Comment_PublishTime = time;
+        this.Comment_Source_fk = source;
+        this.Comment_ThemeID_fk = theme_id;
+        this.Comment_PreCmmtID_fk = precmmt_id;
+    }
     public void setID(int id){
         this.Comment_ID = id;
     }

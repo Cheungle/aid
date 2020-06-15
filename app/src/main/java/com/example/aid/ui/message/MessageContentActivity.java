@@ -56,6 +56,8 @@ public class MessageContentActivity extends AppCompatActivity {
         send = (Button)findViewById(R.id.send);
         msgListView = (ListView)findViewById(R.id.mc_lv);
         msgListView.setAdapter(adapter);
+        Button emoji = findViewById(R.id.emoji);
+        emoji.setVisibility(emoji.GONE);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,8 +86,8 @@ public class MessageContentActivity extends AppCompatActivity {
 
     private void initMsgs() {
         message_list.clear();
-        //message_list = messageDAL.getMessage_Contents(user_id,opposite_name);
-        message_list = messageDAL.getMessage_Contents();
+        message_list = messageDAL.getMessage_Contents(user_id,opposite_name);
+        //message_list = messageDAL.getMessage_Contents();
         //Log.i("msg",message_list.get(1).get("message_type").toString());
         //Log.i("msg",message_list.get(2).toString());
         for (int i = 0; i < message_list.size(); i++) {
@@ -98,6 +100,7 @@ public class MessageContentActivity extends AppCompatActivity {
                 Msg msg = new Msg(message_list.get(i).get("message_content").toString(), Msg.TYPE_RECEIVED);
                 msgList.add(msg);
             }
+            Log.i("message_list=",message_list.get(i).toString());
             Log.i("msgList=", msgList.get(i).getContent());
         }
         messageDAL.getAllMessage();

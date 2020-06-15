@@ -22,13 +22,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     private String id;
+    private int phototo = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         String id = getIntent().getStringExtra("id");
         if(id!= null)this.id = id;
-        Log.i("idi",this.id);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
         // Passing each menu ID as a set of Ids because each
@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
                     R.id.navigation_forum, R.id.navigation_message, R.id.navigation_notifications)
                     .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-
-
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener()
         {
             @Override

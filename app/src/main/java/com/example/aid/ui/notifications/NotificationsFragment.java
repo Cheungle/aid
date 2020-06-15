@@ -1,6 +1,8 @@
 package com.example.aid.ui.notifications;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +23,7 @@ import androidx.navigation.Navigation;
 import com.example.aid.MainActivity;
 import com.example.aid.R;
 import com.example.aid.data.DAL.UserDAL;
+import com.example.aid.data.model.user;
 
 import java.util.Map;
 
@@ -28,6 +31,7 @@ import java.util.Map;
 public class NotificationsFragment extends Fragment {
     private View view;
     private String id;
+    private byte[] photo;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -43,13 +47,16 @@ public class NotificationsFragment extends Fragment {
             phone.setText(this.id);
             UserDAL userDAL = new UserDAL(getContext());
             TextView name =  view.findViewById(R.id.user_name);
-            String[] base = userDAL.selectNameAndPhoto(this.id);
-            name.setText(base[0]);
+            user user = userDAL.selectNameAndPhoto(this.id);
+            name.setText(user.getName());
             ImageView photo = view.findViewById(R.id.photo);
-            if(base[1]==null){
+            this.photo = user.getHead();
+            if(this.photo==null){
                 photo.setImageResource(R.mipmap.photo);
             }else{
-                // photo.setImageResource(base[1]);
+                BitmapFactory.Options opts = new BitmapFactory.Options();
+                Bitmap bitmap = BitmapFactory.decodeByteArray(this.photo, 0, this.photo.length, opts);
+                photo.setImageBitmap(bitmap);
             }
         }
         else {
@@ -288,5 +295,22 @@ public class NotificationsFragment extends Fragment {
             }
 
         });
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(this.id.length()==11){
+            UserDAL userDAL = new UserDAL(getActivity());
+            user user = userDAL.selectNameAndPhoto(this.id);
+            ImageView photo = view.findViewById(R.id.photo);
+            this.photo = user.getHead();
+            if(this.photo==null){
+                photo.setImageResource(R.mipmap.photo);
+            }else{
+                BitmapFactory.Options opts = new BitmapFactory.Options();
+                Bitmap bitmap = BitmapFactory.decodeByteArray(this.photo, 0, this.photo.length, opts);
+                photo.setImageBitmap(bitmap);
+            }
+        }
     }
 }

@@ -162,9 +162,9 @@
         android:id="@+id/mark_chat_with_task_sponsor"
         android:text="@string/chat_with_sponsor_button"
         android:background="@drawable/btn_circle"
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/mark_content_detail" />
@@ -182,8 +182,8 @@
 
     <Button
         android:id="@+id/mark_star_task"
-        android:text="已收藏"
-        android:background="@drawable/btn_circle_gray"
+        android:text="取消收藏"
+        android:background="@drawable/btn_circle"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginStart="270dp"

@@ -40,6 +40,8 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import com.example.aid.R;
+import com.example.aid.data.DAL.UserDAL;
+import com.example.aid.data.model.user;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -57,12 +59,28 @@ public class photoEditActivity extends AppCompatActivity {
     Bitmap bitmap;
     //判断返回到的Activity
     private static final int IMAGE_REQUEST_CODE = 0;
-    Uri imageUri;
-    File outputimage;
+    private Uri imageUri;
+    private File outputimage;
+    private String id;
+    private byte[] photo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_edit);
+        this.id = getIntent().getStringExtra("id");
+        UserDAL userDAL = new UserDAL(this);
+        user user = userDAL.selectPhotoPage(this.id);
+        //Log.v("photof",String.valueOf(this.photo));
+        ImageView photo = findViewById(R.id.photo);
+        this.photo = user.getHead();
+        if(this.photo==null){
+            photo.setImageResource(R.mipmap.photo);
+        }else{
+            //Log.v("photo",String.valueOf(this.photo));
+            BitmapFactory.Options opts = new BitmapFactory.Options();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(this.photo, 0, this.photo.length, opts);
+            photo.setImageBitmap(bitmap);
+        }
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.inflateMenu(R.menu.photo_menu);
@@ -109,9 +127,8 @@ public class photoEditActivity extends AppCompatActivity {
         Button album = root.findViewById(R.id.photoedit_album);
         album.setOnClickListener(new View.OnClickListener(){
            public void onClick(View v){
-               Intent i = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-               i.addCategory(Intent.CATEGORY_OPENABLE);
-               i.setType("image/*") ;
+               Intent i= new Intent(Intent.ACTION_PICK, null);
+               i.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
                startActivityForResult(i,ALBUM_REQUEST_CODE);
            }
        });
@@ -130,7 +147,8 @@ public class photoEditActivity extends AppCompatActivity {
                        photoEditActivity.this.imageUri = Uri.fromFile(photoEditActivity.this.outputimage);
                    }
                    Intent i = new Intent("android.media.action.IMAGE_CAPTURE");
-                   i.putExtra(MediaStore.EXTRA_OUTPUT,CAMERA_REQUEST_CODE);
+                   i.putExtra(MediaStore.EXTRA_OUTPUT,photoEditActivity.this.imageUri);
+                   startActivityForResult(i,CAMERA_REQUEST_CODE);
                } catch (IOException e) {
                    e.printStackTrace();
                }
@@ -149,33 +167,41 @@ public class photoEditActivity extends AppCompatActivity {
             switch (requestCode) {
                 case ALBUM_REQUEST_CODE:
                     {
-                        if(requestCode==RESULT_OK &&data!=null){
-                           Uri uri = data.getData();
-                            try {
-                                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
-                                show.setImageBitmap(bitmap);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                        if(resultCode==RESULT_OK && data !=null){
+                            Log.v("album","here");
+                           if(data.getData()!=null){
+                               Uri uri = data.getData();
+                               try {
+                                   Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                                   show.setImageBitmap(bitmap);
+                                   UserDAL userDAL = new UserDAL(photoEditActivity.this);
+                                   userDAL.updatePhoto(bitmap,this.id);
+                               } catch (IOException e) {
+                                   e.printStackTrace();
+                               }
+                           }
                         }
+                        break;
                     }
 
                 case CAMERA_REQUEST_CODE:
                   {
                       if(resultCode==RESULT_OK){
                           Bitmap bitmap = null;
-                          try {
-                              bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(photoEditActivity.this.imageUri));
-                          } catch (FileNotFoundException e) {
-                              e.printStackTrace();
-                          }
-
+                              try {
+                                  bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(photoEditActivity.this.imageUri));
+                              } catch (FileNotFoundException e) {
+                                  e.printStackTrace();
+                              }
                           try {
                               show.setImageBitmap(rotateIfRequired(bitmap));
+                              UserDAL userDAL = new UserDAL(photoEditActivity.this);
+                              userDAL.updatePhoto(bitmap,this.id);
                           } catch (IOException e) {
                               e.printStackTrace();
                           }
                       }
+                      break;
                   }
 
                 case CROP_SMALL_PICTURE:
@@ -184,9 +210,6 @@ public class photoEditActivity extends AppCompatActivity {
 
 
     }
-//    private Uri getBitmapFromUri(){
-//
-//    }
     private Bitmap rotateIfRequired(Bitmap bitmap) throws IOException {
         ExifInterface exif = new ExifInterface(photoEditActivity.this.outputimage.getPath());
         int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION,ExifInterface.ORIENTATION_NORMAL);
@@ -208,6 +231,13 @@ public class photoEditActivity extends AppCompatActivity {
         bitmap.recycle();
         return rotate;
     }
-
+    @Override
+    public void onBackPressed() {
+        finish();
+        Intent i = new Intent(photoEditActivity.this , photoActivity.class);
+        i.putExtra("id",photoEditActivity.this.id);
+        i.putExtra("photo",photoEditActivity.this.photo);
+        startActivity(i);
+    }
 }
 

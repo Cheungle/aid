@@ -1,16 +1,18 @@
 package com.example.aid.data.model;
 
+import java.sql.Blob;
+
 public class user {
     private String User_ID;
     private String User_Pwd;
     private int User_Sex;
     private String User_Name;
-    private String User_Head;
+    private byte[] User_Head;
     private String User_Address;
     private int User_Age;
     private String User_Identity;
     private String User_RealName;
-    public user(String id,String pwd,int sex,String name,String head,String address,int age,String iden,String rname){
+    public user(String id,String pwd,int sex,String name,byte[] head,String address,int age,String iden,String rname){
         this.User_Address = address;
         this.User_Age = age;
         this.User_Head =head;
@@ -20,6 +22,18 @@ public class user {
         this.User_Sex = sex;
         this.User_Identity = iden;
         this.User_RealName = rname;
+    }
+    public user(String id,int sex,String name,byte[] head,int age){
+        this.User_Age = age;
+        this.User_Head =head;
+        this.User_ID = id;
+        this.User_Name = name;
+        this.User_Sex = sex;
+    }
+    public user(String id,String name,byte[] head){
+        this.User_Head =head;
+        this.User_ID = id;
+        this.User_Name = name;
     }
     public void setID(String id){
         this.User_ID = id;
@@ -33,7 +47,7 @@ public class user {
     public void setName(String name){
         this.User_Name = name;
     }
-    public void setHead(String head){
+    public void setHead(byte[] head){
         this.User_Head = head;
     }
     public void setAddress(String address){
@@ -60,7 +74,7 @@ public class user {
     public String getName(){
         return this.User_Name;
     }
-    public String getHead(){
+    public byte[] getHead(){
         return this.User_Head;
     }
     public String getAddress(){

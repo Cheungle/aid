@@ -1,8 +1,11 @@
 package com.example.aid.ui.notifications;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,13 +13,15 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.aid.MainActivity;
 import com.example.aid.R;
 import com.example.aid.data.DAL.UserDAL;
+import com.example.aid.data.model.user;
 
 public class photoActivity extends AppCompatActivity {
     private String id;
     private String name;
-    private String photo;
+    private byte[] photo = null;
     private String age;
     private String sex;
     @Override
@@ -40,16 +45,21 @@ public class photoActivity extends AppCompatActivity {
         TextView age = findViewById(R.id.info_showage);
         number.setText(this.id);
         UserDAL userDAL = new UserDAL(this);
-        String base[] = userDAL.selectPhotoPage(this.id);
-        this.photo = base[0];
+        user user = userDAL.selectPhotoPage(this.id);
+        //Log.v("photof",String.valueOf(this.photo));
+
+        this.photo = user.getHead();
         if(this.photo==null){
             photo.setImageResource(R.mipmap.photo);
         }else{
-            //photo.setImageResource(this.photo);
+            //Log.v("photo",String.valueOf(this.photo));
+            BitmapFactory.Options opts = new BitmapFactory.Options();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(this.photo, 0, this.photo.length, opts);
+            photo.setImageBitmap(bitmap);
         }
-        this.name = base[1];
-        this.age = base[3];
-        this.sex = base [2];
+        this.name = user.getName();
+        this.age = String.valueOf(user.getAge());
+        this.sex = String.valueOf(user.getSex());
         name.setText(this.name);
         if(this.sex == "1"){
             sex.setText("女");
@@ -93,6 +103,7 @@ public class photoActivity extends AppCompatActivity {
                     this.name = data.getStringExtra("name_return");
                     break;
                 }
+
                 default:
                     break;
             }
@@ -115,7 +126,8 @@ public class photoActivity extends AppCompatActivity {
                 Intent i = new Intent(photoActivity.this , ageEditActivity.class);
                 i.putExtra("id",photoActivity.this.id);
                 i.putExtra("age",photoActivity.this.age);
-                startActivity(i);
+                startActivityForResult(i,1);
+
             }
 
         });
@@ -125,7 +137,8 @@ public class photoActivity extends AppCompatActivity {
                 Intent i = new Intent(photoActivity.this , ageEditActivity.class);
                 i.putExtra("id",photoActivity.this.id);
                 i.putExtra("age",photoActivity.this.age);
-                startActivity(i);
+                startActivityForResult(i,1);
+
             }
 
         });
@@ -196,6 +209,7 @@ public class photoActivity extends AppCompatActivity {
         TextView word = findViewById(R.id.info_photo);
         word.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                finish();
                 Intent i = new Intent(photoActivity.this, photoEditActivity.class);
                 i.putExtra("id",photoActivity.this.id);
                 i.putExtra("photo",photoActivity.this.photo);
@@ -205,6 +219,7 @@ public class photoActivity extends AppCompatActivity {
         TextView icon =  findViewById(R.id.info_arrowphoto);
         icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                finish();
                 Intent i = new Intent(photoActivity.this , photoEditActivity.class);
                 i.putExtra("id",photoActivity.this.id);
                 i.putExtra("photo",photoActivity.this.photo);
@@ -215,6 +230,7 @@ public class photoActivity extends AppCompatActivity {
         ImageView photo = findViewById(R.id.info_showphoto);
         photo.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                finish();
                 Intent i = new Intent(photoActivity.this , photoEditActivity.class);
                 i.putExtra("id",photoActivity.this.id);
                 i.putExtra("photo",photoActivity.this.photo);
@@ -223,4 +239,5 @@ public class photoActivity extends AppCompatActivity {
 
         });
     }
+
 }

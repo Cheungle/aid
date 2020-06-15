@@ -53,7 +53,7 @@ public class MyLineChartView extends View {
 
     private int startX; // 滑动时上一次手指的x坐标值
 
-    private int xyTextSize = 24; //xy轴文字大小
+    private int xyTextSize = 30; //xy轴文字大小
 
     private int paddingTop = 140;// 默认上下左右的padding
 
@@ -139,7 +139,7 @@ public class MyLineChartView extends View {
             originY = mHeight - paddingDown;
 
             firstPointX = paddingLeft;
-            firstMinX = mWidth - originX - (xValues.size() - 1) * intervalX - leftRightExtra;
+            firstMinX = mWidth - originX - (xValues.size() - 0) * intervalX - leftRightExtra;
             // 滑动时，第一个点x值最大为paddingLeft，在大于这个值就不能滑动了
             firstMaxX = firstPointX;
             setBackgroundColor(backGroundColor);

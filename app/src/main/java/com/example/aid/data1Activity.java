@@ -74,7 +74,7 @@ public class data1Activity extends AppCompatActivity {
         mBtntitle1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  data1Activity.this.finish();
+                data1Activity.this.finish();
 //                Intent intent = new Intent(data1Activity.this, MainActivity.class);
 //                startActivity(intent);
             }
@@ -87,11 +87,35 @@ public class data1Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-        xValues.add("5.2");
-        yValues.add(17);
-
+        String all="全国";
+        Cursor cursor = dbHelper.chaxun(all);
+        String data[]=new String[5];
+        data[0]=cursor.getString(cursor.getColumnIndex("Data_Place"));
+        data[1]=String.valueOf(cursor.getInt(cursor.getColumnIndex("Data_Data1")));
+        data[2]=String.valueOf(cursor.getInt(cursor.getColumnIndex("Data_Data2")));
+        data[3]=String.valueOf(cursor.getInt(cursor.getColumnIndex("Data_Data3")));
+        data[4]=String.valueOf(cursor.getInt(cursor.getColumnIndex("Data_Data4")));
+        TextView didian=findViewById(R.id.didian);
+        didian.setText("全国");
+        TextView dienum=findViewById(R.id.dienum);
+        dienum.setText(data[1]);
+        TextView zhiyunum=findViewById(R.id.zhiyunum);
+        zhiyunum.setText(data[2]);
+        TextView xinzengnum=findViewById(R.id.xinzengnum);
+        xinzengnum.setText(data[3]);
+        Cursor cursor51 = dbHelper.zhexian();
+        String xzhou1[]=new String[7];
+        int yzhou1[]=new int[7];
+        int jk1=6;
+        while (cursor51.moveToNext()){
+            xzhou1[jk1]=cursor51.getString(cursor51.getColumnIndex("Daydata_date"));
+            yzhou1[jk1]= cursor51.getInt(cursor51.getColumnIndex("Daydata_all"));
+            jk1=jk1-1;
+        }
+        int i1;
+        for(i1=6;jk1<i1;jk1++){
+            xValues.add(xzhou1[jk1+1]);
+            yValues.add(yzhou1[jk1+1]);}
         customBarChart1 = (LinearLayout) findViewById(R.id.customBarChart1);
         initBarChart1();
 
@@ -114,7 +138,6 @@ public class data1Activity extends AppCompatActivity {
         lView.setOnProvinceSelectedListener(new ChinaMapView.OnProvinceSelectedListener() {
             @Override
             public void onprovinceSelected(ChinaMapView.Area pArea) {
-                /*Toast.makeText(data1Activity.this, "您选择了-->" + pArea.name(), Toast.LENGTH_SHORT).show();*/
                 String place1=pArea.name();
                 Cursor cursor = dbHelper.chaxun(place1);
                 String data[]=new String[5];
@@ -131,6 +154,9 @@ public class data1Activity extends AppCompatActivity {
                 zhiyunum.setText(data[2]);
                 TextView xinzengnum=findViewById(R.id.xinzengnum);
                 xinzengnum.setText(data[3]);
+                TextView zhexiantitle=findViewById(R.id.tv_zhexiantitle);
+                String title=place1+"一周患者数量变化（左划更新）";
+                zhexiantitle.setText(title);
                 Cursor cursor5 = dbHelper.zhexian();
                 String xzhou[]=new String[7];
                 int yzhou[]=new int[7];
@@ -206,7 +232,7 @@ public class data1Activity extends AppCompatActivity {
 
     }
 
-    private void initData1() {
+/*    private void initData1() {
         xValues.add("5.2");
         xValues.add("5.3");
         xValues.add("5.4");
@@ -237,7 +263,7 @@ public class data1Activity extends AppCompatActivity {
         yValues.add(7);
         yValues.add(17);
         yValues.add(17);
-    }
+    }*/
     //初始化柱状图1数据
 
     private void initBarChart1() {
@@ -252,7 +278,7 @@ public class data1Activity extends AppCompatActivity {
         Cursor Data = dbHelper.zhufirst();
         while (Data.moveToNext()){
             xLabel[i] =Data.getString(Data.getColumnIndex("Data_Place"));
-            data1[j] = Integer.parseInt(Data.getString(Data.getColumnIndex("Data_Data1")));
+            data1[j] = Integer.parseInt(Data.getString(Data.getColumnIndex("Data_Data4")));
             j=j+1;
             i=i+1;
         }
@@ -297,8 +323,8 @@ public class data1Activity extends AppCompatActivity {
         Cursor Data = dbHelper.zhusecond();
         while (Data.moveToNext()){
             xLabel[i] =Data.getString(Data.getColumnIndex("Data_Place"));
-            data1[j] = Integer.parseInt(Data.getString(Data.getColumnIndex("Data_Data1")));
-            data2[j] = Integer.parseInt(Data.getString(Data.getColumnIndex("Data_Data2")));
+            data1[j] = Integer.parseInt(Data.getString(Data.getColumnIndex("Data_Data4")));
+            data2[j] = Integer.parseInt(Data.getString(Data.getColumnIndex("Data_Data5")));
             j=j+1;
             i=i+1;
         }

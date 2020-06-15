@@ -27,7 +27,7 @@ public class DataDAL  {
 //        rs.close();
 //        return c;
 //    }
-   public Cursor chaxun(String place) {
+    public Cursor chaxun(String place) {
         SQLiteDatabase db=dbhelper.getReadableDatabase();
         String sql="select * from data where Data_Place='"+place+"'";
         Cursor cursor = db.rawQuery(sql,null);
@@ -37,7 +37,7 @@ public class DataDAL  {
     }
     public Cursor zhufirst() {
         SQLiteDatabase db1=dbhelper.getReadableDatabase();
-        String sql2="select * from data order by Data_Data1 desc limit 10";
+        String sql2="select * from data order by Data_Data4 desc limit 1,10";
         Cursor cursor1 = db1.rawQuery(sql2,null);
         cursor1.moveToNext();
         db1.close();
@@ -45,7 +45,7 @@ public class DataDAL  {
     }
     public Cursor zhusecond() {
         SQLiteDatabase db2=dbhelper.getReadableDatabase();
-        String sql3="select * from data order by Data_Data1 desc limit 6";
+        String sql3="select * from data order by Data_Data4 desc limit 1,6";
         Cursor cursor2 = db2.rawQuery(sql3,null);
         cursor2.moveToNext();
         db2.close();

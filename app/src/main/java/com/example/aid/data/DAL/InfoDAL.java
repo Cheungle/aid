@@ -20,48 +20,86 @@ public class InfoDAL  {
 //        rs.close();
 //        return c;
 //    }
-    public Cursor info(int zhye) {
+    public Cursor info(int zhye,int b,String sousuo) {
+        String sql = null;
         SQLiteDatabase db=dbhelper.getReadableDatabase();
-        String sql="select * from information";
-        if(zhye==2){
-        sql = "select * from information ";}
-        else if(zhye==3){
-            String a="央视新闻";
-        sql = "select * from information where Info_Source='"+a+"'";}
-        else if(zhye==4){
-            String a="人民日报";
-            sql = "select * from information where Info_Source='"+a+"'";}
-        else if(zhye==5){
-            String a="央视新闻";
-            sql = "select * from information where Info_Source='"+a+"'";}
+        if(sousuo==""){
+            if(b==1){
+                if(zhye==0){
+                    sql="select * from information order by Info_Time ASC";}
+                if(zhye==2){
+                    sql = "select * from information order by Info_Time ASC";}
+                else if(zhye==3){
+                    String a="数据";
+                    sql = "select * from information where Info_Kind='"+a+"' order by Info_Time ASC";}
+                else if(zhye==4){
+                    String a="预防";
+                    sql = "select * from information where Info_Kind='"+a+"' order by Info_Time ASC";}
+                else if(zhye==5){
+                    String a="轨迹";
+                    sql = "select * from information where Info_Kind='"+a+"' order by Info_Time ASC";}}
+            else{
+                if(zhye==0){
+                    sql="select * from information order by Info_Time DESC";}
+                if(zhye==2){
+                    sql = "select * from information order by Info_Time DESC";}
+                else if(zhye==3){
+                    String a="数据";
+                    sql = "select * from information where Info_Kind='"+a+"' order by Info_Time DESC";}
+                else if(zhye==4){
+                    String a="预防";
+                    sql = "select * from information where Info_Kind='"+a+"' order by Info_Time DESC";}
+                else if(zhye==5){
+                    String a="轨迹";
+                    sql = "select * from information where Info_Kind='"+a+"' order by Info_Time DESC";}
+            }}
+        else{
+            if(b==1){
+                if(zhye==0){
+                    sql="select * from information order by Info_Time ASC";}
+                if(zhye==2){
+                    sql = "select * from information order by Info_Time ASC";}
+                else if(zhye==3){
+                    String a="数据";
+                    sql = "select * from information where Info_Kind='"+a+"' order by Info_Time ASC";}
+                else if(zhye==4){
+                    String a="预防";
+                    sql = "select * from information where Info_Kind='"+a+"' order by Info_Time ASC";}
+                else if(zhye==5){
+                    String a="轨迹";
+                    sql = "select * from information where Info_Kind='"+a+"' order by Info_Time ASC";}}
+            else{
+                if(zhye==0){
+                    sql="select * from information where Info_Content like '%"+sousuo+"%' order by Info_Time DESC ";}
+                if(zhye==2){
+                    sql = "select * from information where Info_Content like '%"+sousuo+"%' order by Info_Time DESC";}
+                else if(zhye==3){
+                    String a="数据";
+                    sql = "select * from information where Info_Kind='"+a+"' and Info_Content like '%"+sousuo+"%' order by Info_Time DESC";}
+                else if(zhye==4){
+                    String a="预防";
+                    sql = "select * from information where Info_Kind='"+a+"' and Info_Content like '%"+sousuo+"%' order by Info_Time DESC";}
+                else if(zhye==5){
+                    String a="轨迹";
+                    sql = "select * from information where Info_Kind='"+a+"' and Info_Content like '%"+sousuo+"%' order by Info_Time DESC";}
+            }
+        }
         Cursor cursor = db.rawQuery(sql,null);
-
-      /*  String sql1 = "select count(*) from info";
-        Cursor cursor1 = db.rawQuery(sql1,null);
-
-        cursor1.moveToFirst();
-        long count = cursor1.getLong(0);
-        Log.v("count", String.valueOf(count));*/
-       /* String Title[]= new String[count];
-        String Content[]= new String[count];
-        int i=0;
-        while(cursor.moveToNext()){
-
-            Title[i] = cursor.getString(cursor.getColumnIndex("Info_Title"));
-            Content[i] = cursor.getString(cursor.getColumnIndex("Info_Content"));
-
-            i=i+1;
-        }*/
-
-        //int count = cursor.getCount();
-       // cursor.moveToNext();
-        //Log.v("information", String.valueOf(cursor));
         return cursor;
+
     }
-    public Cursor deleteinfo(String title) {
+    public void deleteinfo(String title) {
         SQLiteDatabase db6=dbhelper.getReadableDatabase();
         String sql7="delete from information where Info_Title='"+title+"'";
-        Cursor cursor6 = db6.rawQuery(sql7,null);
-        return cursor6;
+        db6.rawQuery(sql7,null);
+        Cursor cursor = db6.rawQuery(sql7,null);
+        while (cursor.moveToNext()) {
+            Log.i("TAG","title"+cursor.getString(1));
+        }
+        /*String sql2="select * from information where Info_Title='"+title+"'";
+        Cursor cursor7 = db6.rawQuery(sql2,null);
+        while (cursor7.moveToNext()){
+            Log.v("title111",cursor7.getString(cursor7.getColumnIndex("Info_Title")));
+        }*/
     }
 }

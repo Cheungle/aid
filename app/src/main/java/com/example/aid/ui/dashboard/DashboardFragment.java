@@ -18,6 +18,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import com.example.aid.R;
 import com.example.aid.data.DAL.DataBaseHelper;
+import com.example.aid.ui.notifications.identityEditActivity;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -35,7 +36,7 @@ public class DashboardFragment<string> extends Fragment {
     private String[] time ;
     private String[] content ;
     private AlertDialog alertDialog_AddRecord;//点击新建按钮时弹出提示框
-    private Button new_taskresources;
+    private Button new_taskresources,chat_with_sponsor;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -84,8 +85,24 @@ public class DashboardFragment<string> extends Fragment {
                 SimpleAdapter adapter = new SimpleAdapter(getActivity()
                         , taskresources_list
                         , R.layout.fragment_dashboard_task_item
-                        , new String[]{"name","place","time","content"}
-                        , new int[]{R.id.task_sponsor_detail,R.id.task_location_detail,R.id.task_task_time_detail,R.id.task_content_detail});
+                        , new String[]{"name","place","time","content","id"}
+                        , new int[]{R.id.task_sponsor_detail,R.id.task_location_detail,R.id.task_task_time_detail,R.id.task_content_detail,R.id.task_id})
+                {
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        final int p=position;
+                        final View view=super.getView(position, convertView, parent);
+                        Button useBtn=(Button)view.findViewById(R.id.chat_with_task_sponsor);
+                        useBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(getActivity(), DashboardNewTaskReources.class);
+                                startActivity(intent);
+                            }
+                        });
+                        return view;
+                    }
+                };
 
                 ListView listView = (ListView) taskresources_view.findViewById(R.id.task_resources_list);
                 listView.setAdapter(adapter);
@@ -151,6 +168,7 @@ public class DashboardFragment<string> extends Fragment {
             Map<String, Object> map = new HashMap<String, Object>();
 
             map.put("name",  c.getString(c.getColumnIndex("User_Name")));
+            map.put("id",  c.getString(c.getColumnIndex("Task_ID")));
             //map.put("sponsor_time", c.getString(c.getColumnIndex("")));
             map.put("place", c.getString(c.getColumnIndex("Task_Place")));
             map.put("time", c.getString(c.getColumnIndex("Task_Time")));

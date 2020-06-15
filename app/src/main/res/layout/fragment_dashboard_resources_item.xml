@@ -139,7 +139,7 @@
     <Button
         android:id="@+id/chat_with_resources_sponsor"
         android:text="@string/chat_with_sponsor_button"
-        android:background="#EFAA52"
+        android:background="@drawable/btn_circle"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginStart="50dp"
@@ -150,7 +150,7 @@
     <Button
         android:id="@+id/accept_resources"
         android:text="@string/accept_TR"
-        android:background="#EFAA52"
+        android:background="@drawable/btn_circle"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginStart="160dp"
@@ -161,7 +161,7 @@
     <Button
         android:id="@+id/star_resources"
         android:text="@string/star"
-        android:background="#EFAA52"
+        android:background="@drawable/btn_circle"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginStart="270dp"

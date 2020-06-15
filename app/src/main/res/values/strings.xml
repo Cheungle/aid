@@ -74,4 +74,5 @@
     <string name="star">收藏</string>
     <string name="recipient">认领人</string>
     <string name="finish_status">完成状态</string>
+    <string name="delete">删除</string>
 </resources>

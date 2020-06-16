@@ -10,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -48,7 +50,7 @@ public class markActivity extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        SimpleAdapter adapter = new SimpleAdapter(this
+        MySimpleAdapter adapter = new MySimpleAdapter(this
                 , taskresources_list
                 , R.layout.mark_task
                 , new String[]{"id","name","type","place","time","content","rece","finish"}
@@ -57,6 +59,7 @@ public class markActivity extends AppCompatActivity {
 
         final ListView listView = (ListView) findViewById(R.id.show_mark_list);
         listView.setAdapter(adapter);
+
     }
 
     private void getMarkData() throws SQLException {
@@ -81,4 +84,5 @@ public class markActivity extends AppCompatActivity {
         }
 
     }
+
 }

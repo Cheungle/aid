@@ -37,4 +37,9 @@ public class RCTDAL {
         cursor.close();
         return t;
     }
+    public void addRCTask(String id,String person,String time){
+        SQLiteDatabase db=dbhelper.getWritableDatabase();
+        String sql = "insert into receivedtask values('"+id+"','"+person+"','"+time+"')";
+        db.execSQL(sql);
+    }
 }

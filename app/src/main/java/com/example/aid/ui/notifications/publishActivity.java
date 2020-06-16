@@ -35,8 +35,8 @@ public class publishActivity extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        SimpleAdapter adapter = new SimpleAdapter(this
-                , taskresources_list
+        MySimpleAdapter adapter = new MySimpleAdapter(this
+                ,this.id, taskresources_list
                 , R.layout.mine_publish_item
                 , new String[]{"id","type","place","time","content","rece","finish","review"}
                 , new int[]{R.id.pub_task_ID,R.id.pub_type_text,R.id.pub_location_detail, R.id.pub_task_time_detail,

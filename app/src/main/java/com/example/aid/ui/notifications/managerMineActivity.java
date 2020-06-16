@@ -76,8 +76,8 @@ public class managerMineActivity extends AppCompatActivity {
 
                     taskresources_list.clear();
                     getReviewComment();
-                    SimpleAdapter adapter = new SimpleAdapter(managerMineActivity.this
-                            , taskresources_list
+                    MySimpleAdapter adapter = new MySimpleAdapter(managerMineActivity.this
+                            ,id, taskresources_list
                             , R.layout.comment_review
                             , new String[]{"id","name","theme","last","time","content"}
                             , new int[]{R.id.review_comment_ID,R.id.review_comment_sponsor_detail,R.id.review_comment_theme_text,
@@ -127,8 +127,8 @@ public class managerMineActivity extends AppCompatActivity {
 
                     taskresources_list.clear();
                     getReviewData();
-                    SimpleAdapter adapter = new SimpleAdapter(managerMineActivity.this
-                            , taskresources_list
+                    MySimpleAdapter adapter = new MySimpleAdapter(managerMineActivity.this
+                            ,id, taskresources_list
                             , R.layout.review_task
                             , new String[]{"id","name","type","place","time","content"}
                             , new int[]{R.id.review_task_ID,R.id.review_sponsor_detail,R.id.review_type_text,

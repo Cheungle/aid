@@ -32,8 +32,8 @@ public class receiveActivity extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        SimpleAdapter adapter = new SimpleAdapter(this
-                , taskresources_list
+        MySimpleAdapter adapter = new MySimpleAdapter(this
+                , this.id,taskresources_list
                 , R.layout.receive_item
                 , new String[]{"id","pub","type","place","time","content","finish"}
                 , new int[]{R.id.rec_task_ID,R.id.rec_sponsor_detail,R.id.rec_type_text,R.id.rec_location_detail, R.id.rec_task_time_detail,

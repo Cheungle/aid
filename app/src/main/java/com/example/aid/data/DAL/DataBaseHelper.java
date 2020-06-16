@@ -35,7 +35,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "  `Manager_Password` varchar(20) NOT NULL" +
                 ")");
         db.execSQL("CREATE TABLE IF NOT EXISTS `data` (" +
-                "  `Data_ID` int(11) PRIMARY KEY UNIQUE NOT NULL," +
+                "  `Data_ID` int(11) PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL," +
                 "  `Data_Place` varchar(10) NOT NULL," +
                 "  `Data_Time` date NOT NULL," +
                 "  `Data_Source` varchar(20) NOT NULL," +
@@ -47,7 +47,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
                 ") ");
         db.execSQL("CREATE TABLE IF NOT EXISTS `daydata` (" +
-                "  `Daydata_ID` int(11) PRIMARY KEY UNIQUE NOT NULL," +
+                "  `Daydata_ID` int(11) PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL," +
                 "  `Daydata_date` varchar(10) NOT NULL," +
                 "  `Daydata_0` int(11) NOT NULL," +
                 "  `Daydata_1` int(11) NOT NULL," +
@@ -86,7 +86,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "  `Daydata_all` int(11) NOT NULL" +
                 ") ");
         db.execSQL("CREATE TABLE IF NOT EXISTS `information` (" +
-                "  `Info_ID` int(11) PRIMARY KEY UNIQUE NOT NULL," +
+                "  `Info_ID` int(11) PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL," +
                 "  `Info_Title` varchar(245)  NOT NULL," +
                 "  `Info_Content` varchar(500)  NOT NULL," +
                 "  `Info_Time` date NOT NULL," +
@@ -96,7 +96,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "  `Info_Kind` varchar(50) " +
                 ") ");
         db.execSQL("CREATE TABLE IF NOT EXISTS `task` (" +
-                "  `Task_ID` int(11) PRIMARY KEY UNIQUE NOT NULL," +
+                "  `Task_ID` int(11) PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL," +
                 "  `Task_CreatorID_fk` char(12) NOT NULL," +
                 "  `Task_Content` varchar(100) NOT NULL," +
                 "  `Task_Time` date DEFAULT NULL," +
@@ -105,14 +105,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "  FOREIGN KEY (`Task_CreatorID_fk`) REFERENCES `user` (`User_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION" +
                 ")");
         db.execSQL("CREATE TABLE IF NOT EXISTS `mark` (" +
-                "  `Mark_ID` int(11) PRIMARY KEY UNIQUE NOT NULL," +
+                "  `Mark_ID` int(11) PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL," +
                 "  `Mark_TaskID_fk` int(11) NOT NULL," +
                 "  `Mark_UserID_fk` char(12) NOT NULL," +
                 "  FOREIGN KEY (`Mark_TaskID_fk`) REFERENCES `task` (`Task_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION," +
                 "  FOREIGN KEY (`Mark_UserID_fk`) REFERENCES `user` (`User_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION" +
                 ")");
         db.execSQL("CREATE TABLE IF NOT EXISTS `messagewindow` (" +
-                "  `MW_ID` int(11) PRIMARY KEY UNIQUE NOT NULL," +
+                "  `MW_ID` int(11) PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL," +
                 "  `MW_UserID1_fk` char(12) NOT NULL," +
                 "  `MW_UserID2_fk` char(12) NOT NULL," +
                 "  `MW_Time` date NOT NULL," +
@@ -122,7 +122,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "  FOREIGN KEY (`MW_UserID2_fk`) REFERENCES `user` (`User_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION" +
                 ") ");
         db.execSQL("CREATE TABLE IF NOT EXISTS `message` (" +
-                "  `Message_ID` int(11) PRIMARY KEY UNIQUE NOT NULL," +
+                "  `Message_ID` int(11) PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL," +
                 "  `Message_UserID_fk` char(12) NOT NULL," +
                 "  `Message_Time` date NOT NULL," +
                 "  `Message_WindowID_fk` int(11) NOT NULL," +
@@ -153,14 +153,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "  FOREIGN KEY (`CT_ID_fk`) REFERENCES `receivedtask` (`RCT_ID_fk`) ON DELETE NO ACTION ON UPDATE NO ACTION" +
                 ") ");
         db.execSQL("CREATE TABLE IF NOT EXISTS `theme` (" +
-                "  `Theme_ID` int(11) PRIMARY KEY UNIQUE NOT NULL," +
+                "  `Theme_ID` int(11) PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL," +
                 "  `Theme_Content` varchar(100) NOT NULL," +
                 "  `Theme_Time` date NOT NULL," +
                 "  `Theme_ManagerID_fk` char(13) NOT NULL," +
                 "  FOREIGN KEY (`Theme_ManagerID_fk`) REFERENCES `manager` (`Manager_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION" +
                 ")");
         db.execSQL("CREATE TABLE IF NOT EXISTS `comment` (" +
-                "  `Comment_ID` int(11) PRIMARY KEY NOT NULL UNIQUE," +
+                "  `Comment_ID` int(11) PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE," +
                 "  `Comment_Content` varchar(50) NOT NULL," +
                 "  `Comment_PublishTime` date NOT NULL," +
                 "  `Comment_Source_fk` char(12) NOT NULL," +

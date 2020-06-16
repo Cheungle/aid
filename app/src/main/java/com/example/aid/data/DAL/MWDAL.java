@@ -37,7 +37,19 @@ public class MWDAL {
         user_names=str_names;
         return user_names;
     }
-
+    public boolean isMessageWindowExist(String User1ID,String User2ID,int TaskID){
+        SQLiteDatabase db=dbhelper.getReadableDatabase();
+        String sql="select count(*) from messagewindow where MW_TaskID_fk='"+ TaskID +"' " +
+                "and MW_UserID1_fk ='"+User1ID+"' and MW_UserID2_fk = '"+User2ID+"'";
+        Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+        long count = cursor.getLong(0);
+        if(count > 0) {
+            cursor.close();
+            return true;
+        }
+        else {cursor.close();return false;}
+    }
     public void insertMessageWindow(String User1ID,String User2ID,int TaskID) {
         SQLiteDatabase db=dbhelper.getReadableDatabase();
         String sql="select MAX(MW_ID) from message";

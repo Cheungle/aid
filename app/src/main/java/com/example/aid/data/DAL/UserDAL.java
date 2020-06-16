@@ -56,6 +56,15 @@ public class UserDAL  {
         String sql = "insert into user(User_ID,User_Pwd,User_Name,User_Sex) values('"+id+"','"+password+"','"+name+"','"+sex+"')";
         db.execSQL(sql);
     }
+    public String selectName(String id){
+        SQLiteDatabase db=dbhelper.getReadableDatabase();
+        String sql = "select User_Name from user where User_ID='" + id + "'";
+        Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+        String name = cursor.getString(cursor.getColumnIndex("User_Name"));
+        cursor.close();
+        return name;
+    }
     public user selectNameAndPhoto(String id){
         SQLiteDatabase db=dbhelper.getReadableDatabase();
         String sql = "select User_Name,User_Head from user where User_ID='" + id + "'";

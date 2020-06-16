@@ -17,7 +17,16 @@ public class RVCDAL {
         dbhelper = new DataBaseHelper(context);
         Log.v("tag","success");
     }
-
+    public void deleteByID(String id){
+        SQLiteDatabase db=dbhelper.getWritableDatabase();
+        String sql = "delete from reviewedcomment where RC_ID_fk = '"+ id +"'";
+        db.execSQL(sql);
+    }
+    public void addRComment(String comment_id,String manager,String time,String state){
+        SQLiteDatabase db=dbhelper.getWritableDatabase();
+        String sql = "insert into reviewedtask values('"+comment_id+"','"+manager+"','"+time+"','"+state+"')";
+        db.execSQL(sql);
+    }
     public ArrayList<comment> selectRVCommentByOne(String id){
         SQLiteDatabase db=dbhelper.getReadableDatabase();
         String sql="select * from comment,reviewedcomment where RC_ManagerID_fk = '"+ id +"' and Comment_State = 1 and Comment_ID=RC_ID_fk";

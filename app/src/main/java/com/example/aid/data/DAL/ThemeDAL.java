@@ -36,7 +36,11 @@ public class ThemeDAL {
             cursor.close();
             forum_titles=str_titles;
     }
-
+    public void deleteByID(String id){
+        SQLiteDatabase db=dbhelper.getWritableDatabase();
+        String sql = "delete from theme where Theme_ID = '"+ id +"'";
+        db.execSQL(sql);
+    }
     public String getContentByThemeID(int Theme_ID) throws SQLException {
         SQLiteDatabase db=dbhelper.getReadableDatabase();
         String sql = "select Theme_Content from theme where Theme_ID = '"+Theme_ID+"' ";

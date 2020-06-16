@@ -34,8 +34,8 @@ public class themeActivity extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        SimpleAdapter adapter = new SimpleAdapter(this
-                , taskresources_list
+        MySimpleAdapter adapter = new MySimpleAdapter(this
+                , this.id,taskresources_list
                 , R.layout.mine_theme_item
                 , new String[]{"id","time","content"}
                 , new int[]{R.id.theme_ID,R.id.theme_time_text,R.id.theme_content_detail});

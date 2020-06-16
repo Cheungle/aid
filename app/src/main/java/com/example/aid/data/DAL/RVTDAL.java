@@ -16,7 +16,16 @@ public class RVTDAL {
         dbhelper = new DataBaseHelper(context);
         Log.v("tag","success");
     }
-
+    public void deleteByID(String id){
+        SQLiteDatabase db=dbhelper.getWritableDatabase();
+        String sql = "delete from reviewedtask where RVT_ID_fk = '"+ id +"'";
+        db.execSQL(sql);
+    }
+    public void addRVTask(String task_id,String manager,String time,String state){
+        SQLiteDatabase db=dbhelper.getWritableDatabase();
+        String sql = "insert into reviewedtask values('"+task_id+"','"+manager+"','"+time+"','"+state+"')";
+        db.execSQL(sql);
+    }
     public ArrayList<taskView> selectRCTaskInfoByOne(String id){
         SQLiteDatabase db=dbhelper.getReadableDatabase();
         String sql="select * from reviewedtask,task where RVT_ManagerID_fk = '"+ id +"' and RVT_ID_fk = Task_ID";

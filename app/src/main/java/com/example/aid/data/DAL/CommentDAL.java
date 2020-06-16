@@ -59,7 +59,7 @@ public class CommentDAL {
     public void insertComment(String Comment_Content, String Comment_PublishTime,
                               String Comment_Source_fk,int Comment_ThemeID_fk) throws SQLException{
 
-        SQLiteDatabase db=dbhelper.getReadableDatabase();
+        SQLiteDatabase db=dbhelper.getWritableDatabase();
         String sql="select MAX(Comment_ID) from comment";
         Cursor cursor = db.rawQuery(sql,null);
         while (cursor.moveToNext()){
@@ -80,9 +80,9 @@ public class CommentDAL {
     }
 
     public void deleteComment(int Theme_ID, String Comment_Content) {
-        SQLiteDatabase db=dbhelper.getReadableDatabase();
+        SQLiteDatabase db=dbhelper.getWritableDatabase();
         String sql="delete from comment where Comment_ThemeID_fk = '"+Theme_ID+"' and Comment_Content = '"+Comment_Content+"' ";
-        db.rawQuery(sql,null);
+        db.execSQL(sql);
 
         String sql_test="select Comment_Content from comment";
         Cursor cursor = db.rawQuery(sql,null);

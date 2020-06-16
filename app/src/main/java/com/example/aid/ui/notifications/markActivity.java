@@ -51,10 +51,10 @@ public class markActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         MySimpleAdapter adapter = new MySimpleAdapter(this
-                , taskresources_list
+                ,this.id, taskresources_list
                 , R.layout.mark_task
-                , new String[]{"id","name","type","place","time","content","rece","finish"}
-                , new int[]{R.id.mark_task_ID,R.id.mark_sponsor_detail,R.id.mark_type_text,R.id.mark_location_detail,
+                , new String[]{"id","creator","name","type","place","time","content","rece","finish"}
+                , new int[]{R.id.mark_task_ID,R.id.mark_chat_ID,R.id.mark_sponsor_detail,R.id.mark_type_text,R.id.mark_location_detail,
                 R.id.mark_task_time_detail,R.id.mark_content_detail,R.id.mark_status_detail,R.id.mark_recipient_detail});
 
         final ListView listView = (ListView) findViewById(R.id.show_mark_list);
@@ -69,7 +69,10 @@ public class markActivity extends AppCompatActivity {
         while (i < t.size()){
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("id", t.get(i).getTask_ID());
-            map.put("name",  t.get(i).getTask_CreatorID_fk());
+            map.put("creator",  t.get(i).getTask_CreatorID_fk());
+            UserDAL userDAL = new UserDAL(this);
+            String name = userDAL.selectName(t.get(i).getTask_CreatorID_fk());
+            map.put("name",  name);
             if(t.get(i).getTask_Type()==1)
             {map.put("type","任务");}
             else{map.put("type","资源");}

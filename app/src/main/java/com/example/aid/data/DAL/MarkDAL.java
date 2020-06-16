@@ -17,10 +17,15 @@ public class MarkDAL {
         dbhelper=new DataBaseHelper(context);
         Log.v("tag","success");
     }
+    public void deleteByID(String id,String marker){
+        SQLiteDatabase db=dbhelper.getWritableDatabase();
+        String sql = "delete from mark where Mark_TaskID_fk = '"+ id +"'and Mark_UserID_fk='"+ marker +"'";
+        db.execSQL(sql);
+    }
     public ArrayList<taskView> selectMarkByOne(String id) throws SQLException {
         SQLiteDatabase db=dbhelper.getReadableDatabase();
-        String sql = "select Mark_TaskID_fk,Task_Content,Task_Place,Task_Time,Task_Type,MarkTask.User_Name as PubPerson,Markinfo.User_Name as RecPerson,CT_CompletedTime " +
-                "from (select Mark_UserID_fk,Mark_TaskID_fk,Task_Content,Task_Place,Task_Time,Task_Type,User_Name from mark,task,user where Mark_TaskID_fk=Task_ID and Task_CreatorID_fk=User_ID) as MarkTask " +
+        String sql = "select Mark_TaskID_fk,Task_Content,Task_Place,Task_Time,Task_Type,Task_CreatorID_fk as PubPerson,Markinfo.User_Name as RecPerson,CT_CompletedTime " +
+                "from (select Mark_UserID_fk,Mark_TaskID_fk,Task_Content,Task_Place,Task_Time,Task_Type,User_Name,Task_CreatorID_fk from mark,task,user where Mark_TaskID_fk=Task_ID and Task_CreatorID_fk=User_ID) as MarkTask " +
                 "left join reviewedtask " +
                 "on Mark_TaskID_fk=RVT_ID_fk " +
                 "left join (select User_Name,RCT_ID_fk from receivedtask,user where User_ID=RCT_ReceiverID_fk) as Markinfo " +

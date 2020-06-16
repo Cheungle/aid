@@ -21,7 +21,11 @@ public class TaskDAL {
         dbhelper = new DataBaseHelper(context);
         Log.v("tag","success");
     }
-
+    public void deleteByID(String id){
+        SQLiteDatabase db=dbhelper.getWritableDatabase();
+        String sql = "delete from task where Task_ID = '"+ id +"'";
+        db.execSQL(sql);
+    }
     public void insertTask(String Task_CreatorID_fk, String Task_Content,
                            String Task_Time, int Task_Type, String Task_Place) throws SQLException {
 
